@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada - Clínica OdontoEstetica Panamá</title>
+    
+    <meta name="description" content="Página no encontrada - Clínica OdontoEstetica Panamá. La página que buscas no existe.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="language" content="Spanish">
+    
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="theme-color" content="#ffc107">
+
+    <style>
+        :root {
+            --brand-gold: #ffc107;
+            --dark-bg: #000;
+            --light-text: #fff;
+            --dark-text: #000;
+            --gradient-gold: linear-gradient(135deg, #ffc107, #ffb300);
+            --error-red: #ff4757;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #000000, #1a1a1a, #000000);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--brand-gold);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Logo/Icon */
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: ripple 3s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes ripple {
+            0% { 
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            100% { 
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* 404 Error Number */
+        .error-number {
+            font-size: 8rem;
+            font-weight: 900;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(255, 193, 7, 0.3);
+        }
+
+        /* Error Title */
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        /* Error Message */
+        .error-message {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            animation: slideInUp 1s ease-out 0.4s both;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Broken Tooth Icon */
+        .broken-tooth {
+            font-size: 4rem;
+            color: var(--error-red);
+            margin-bottom: 1rem;
+            animation: wobble 2s ease-in-out infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+            color: var(--dark-text);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--light-text);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            animation: slideInUp 1s ease-out 0.8s both;
+            text-align: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .error-number {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .broken-tooth {
+                font-size: 3rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .footer {
+                bottom: 1rem;
+                font-size: 0.8rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-number {
+                font-size: 4.5rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .broken-tooth {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Glitch effect for 404 number */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: '404';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glitch::before {
+            animation: glitch1 2s infinite;
+        }
+
+        .glitch::after {
+            animation: glitch2 2s infinite;
+        }
+
+        @keyframes glitch1 {
+            0%, 14%, 15%, 49%, 50%, 99%, 100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+            1%, 13%, 16%, 48%, 51%, 98% {
+                transform: translate(-2px, 2px);
+                filter: hue-rotate(90deg);
+            }
+        }
+
+        @keyframes glitch2 {
+            0%, 20%, 21%, 62%, 63%, 99%, 100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+            2%, 19%, 22%, 61%, 64%, 97% {
+                transform: translate(2px, -2px);
+                filter: hue-rotate(270deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Content -->
+    <div class="container">      
+        <div class="broken-tooth">😬</div>
+        
+        <div class="error-number glitch">404</div>
+        
+        <h1 class="error-title">¡Oops! Página no encontrada</h1>
+        
+        <p class="error-message">
+            Parece que la página que buscas se ha perdido en el espacio dental. 
+            No te preocupes, esto le pasa hasta a las mejores sonrisas.
+        </p>
+        
+        <div class="action-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home btn-icon"></i>
+                Volver al inicio
+            </a>
+            
+            <a href="https://instagram.com/dr.morci_pty" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-instagram btn-icon"></i>
+                Síguenos en Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2025 Clínica OdontoEstetica Panamá
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 12;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 5px
+                const size = Math.random() * 3 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                
+                // Random animation duration
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add smooth hover effect to the logo
+        function addLogoInteraction() {
+            const logo = document.querySelector('.logo');
+            
+            logo.addEventListener('mouseenter', () => {
+                logo.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            logo.addEventListener('mouseleave', () => {
+                logo.style.transform = 'scale(1) rotate(0deg)';
+            });
+        }
+
+        // Add parallax effect to particles on mouse move
+        function addParallaxEffect() {
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) * 100;
+                mouseY = (e.clientY / window.innerHeight) * 100;
+                
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index % 3 + 1) * 0.015;
+                    const x = (mouseX - 50) * speed;
+                    const y = (mouseY - 50) * speed;
+                    particle.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        }
+
+        // Add click tracking for buttons
+        function addButtonTracking() {
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const buttonText = e.target.textContent.trim();
+                    console.log('Button clicked:', buttonText);
+                });
+            });
+        }
+
+        // Easter egg: Click on broken tooth emoji
+        function addEasterEgg() {
+            const brokenTooth = document.querySelector('.broken-tooth');
+            let clickCount = 0;
+            
+            brokenTooth.addEventListener('click', () => {
+                clickCount++;
+                
+                if (clickCount === 1) {
+                    brokenTooth.textContent = '😁';
+                } else if (clickCount === 2) {
+                    brokenTooth.textContent = '🦷';
+                } else if (clickCount === 3) {
+                    brokenTooth.textContent = '✨';
+                    setTimeout(() => {
+                        brokenTooth.textContent = '😬';
+                        clickCount = 0;
+                    }, 2000);
+                }
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            addLogoInteraction();
+            addParallaxEffect();
+            addButtonTracking();
+            addEasterEgg();
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focusedElement = document.activeElement;
+                if (focusedElement.classList.contains('btn')) {
+                    focusedElement.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
