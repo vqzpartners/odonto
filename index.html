@@ -1,1 +1,881 @@
-ejemplo
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OdontoEstética Panamá - Odontología Estética, Ortodoncia, Implantes</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia invisible, Implantes dentales, Endodoncia, carillas y diseño de sonrisa. ¡Transforma tu sonrisa con los mejores especialistas de Panamá!">
+    <meta name="keywords" content="OdontoEstética Panamá, odontología estética panamá, ortodoncia panamá, endodoncia panamá, implantes dentales panamá, clinica dental panama, dentista panama, carillas dentales panama, blanqueamiento dental panamá">
+    <meta name="author" content="OdontoEstética Panamá">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="PA">
+    <meta name="geo.placename" content="Panamá">
+    <meta name="geo.position" content="8.9824;-79.5199">
+    <meta name="ICBM" content="8.9824, -79.5199">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://odontoestetica.com.pa/">
+    <meta property="og:title" content="OdontoEstética Panamá - Expertos en Odontología Estética y Especialidades">
+    <meta property="og:description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia invisible, Implantes dentales y Endodoncia.">
+    <meta property="og:image" content="https://odontoestetica.com.pa/img/odonto-estetica-panama-logo.png">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="OdontoEstética Panamá">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://odontoestetica.com.pa/">
+    <meta property="twitter:title" content="OdontoEstética Panamá - Odontología Estética, Ortodoncia, Implantes">
+    <meta property="twitter:description" content="Especialistas en Odontología Estética en Panamá. Soluciones completas en ortodoncia, endodoncia, implantes, carillas y más.">
+    <meta property="twitter:image" content="https://odontoestetica.com.pa/img/odonto-estetica-panama-logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DentalClinic",
+      "name": "OdontoEstética Panamá",
+      "alternateName": "OdontoEstética Panamá",
+      "description": "Clínica dental líder en Odontología Estética en Panamá, con especialidades en Ortodoncia, Endodoncia, e Implantología.",
+      "url": "https://odontoestetica.com.pa",
+      "telephone": "+507-6727-2029",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 54 Este, Obarrio Torre Generali, Piso 20, Local 20A",
+        "addressLocality": "Panamá",
+        "addressRegion": "Panamá",
+        "addressCountry": "PA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 8.9824,
+        "longitude": -79.5199
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "priceRange": "$$",
+      "medicalSpecialty": ["Odontología Estética", "Ortodoncia", "Endodoncia", "Implantología", "Odontología Biomimética", "Odontología Biológica"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "150"
+      },
+      "logo": "https://odontoestetica.com.pa/img/odonto-estetica-panama-logo.png",
+      "sameAs": [
+        "https://www.facebook.com/odontoesteticapanama",
+        "https://www.instagram.com/odontoesteticapanama"
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .header {
+            background: #000000;
+            padding: 30px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Easy logo URL change - Update this variable */
+        :root {
+            --logo-url: url('https://placehold.co/50x50/ffc107/000000?text=OE');
+        }
+
+        .logo {
+            background-image: var(--logo-url);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cta-button {
+            background: #ffc107;
+            color: black;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #ffcd38;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            flex: 1;
+        }
+
+        /* Question Section */
+        .question-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .question-section h1 {
+            font-size: 3.2rem;
+            color: #ffc107;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .question-section .subtitle {
+            font-size: 1.4rem;
+            color: #ccc;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 15px;
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .options-row-1 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .options-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .option-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 35px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+            width: 100%;
+        }
+
+        .option-card:nth-child(1) { animation-delay: 0.1s; }
+        .option-card:nth-child(2) { animation-delay: 0.2s; }
+        .option-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-card:hover::before {
+            left: 100%;
+        }
+
+        .option-card:hover {
+            border-color: #ffc107;
+            background: #2a2a2a;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.2);
+        }
+        
+        /* -- NEW -- Clickability Indicator */
+        .option-card::after {
+            content: '→';
+            position: absolute;
+            right: 30px;
+            bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffc107;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .option-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .option-icon {
+            width: 75px;
+            height: 75px;
+            background: #333;
+            border: 2px solid #ffc107;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ffc107;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .option-card.featured .option-icon {
+            width: 90px;
+            height: 90px;
+            font-size: 2.5rem;
+        }
+
+        .option-card:hover .option-icon {
+            transform: scale(1.1);
+            background: #ffc107;
+            color: black;
+        }
+
+        .option-content {
+            width: 100%;
+        }
+
+        .option-card.featured .option-content {
+            max-width: 550px; /* Prevents text stretching without shrinking card */
+        }
+        
+        .option-content h3 {
+            font-size: 1.4rem;
+            color: #ffc107;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .option-card.featured .option-content h3 {
+            font-size: 1.6rem;
+        }
+
+        .option-content p {
+            color: #ccc;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .option-card.featured .option-content p {
+            font-size: 1rem;
+        }
+        
+        /* Reviews Carousel Section */
+        .reviews-section { 
+            padding: 4rem 0; 
+            background: #000000; 
+            position: relative; 
+            overflow: hidden; 
+            margin-top: 50px;
+            flex-shrink: 0;
+        }
+
+        .reviews-section h2 {
+            color: #ffc107; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            margin: 0 auto 3rem auto; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem;
+            justify-content: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .reviews-section h2::after { 
+            content: ""; 
+            height: 2px; 
+            background: linear-gradient(90deg, #ffc107, transparent); 
+            flex-grow: 1; 
+        }
+
+        .reviews-section h2::before { 
+            content: ""; 
+            height: 2px; 
+            background: linear-gradient(90deg, transparent, #ffc107); 
+            flex-grow: 1; 
+        }
+
+        .reviews-carousel { 
+            position: relative; 
+        }
+
+        .reviews-track { 
+            display: flex; 
+            gap: 2rem; 
+            animation: infiniteScroll 60s linear infinite; 
+            width: max-content; 
+            padding: 0 2rem; 
+        }
+
+        .reviews-track:hover { 
+            animation-play-state: paused; 
+        }
+
+        .reviews-carousel::before,
+        .reviews-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .reviews-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+        }
+
+        .reviews-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+        }
+
+        .review-card {
+            /* -- UPDATED -- Matched to option-card style */
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 16px; 
+            padding: 2rem; 
+            width: 350px; 
+            min-width: 350px; 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+        }
+
+        .review-card:hover { 
+            /* -- UPDATED -- Matched hover effect */
+            transform: translateY(-8px); 
+            border-color: #ffc107;
+            background: #2a2a2a;
+            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.2);
+        }
+
+        .review-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            margin-bottom: 1.5rem; 
+        }
+
+        .reviewer-avatar { 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #000; 
+            flex-shrink: 0; 
+        }
+
+        .reviewer-info h4 { 
+            color: #ffc107; 
+            font-size: 1.1rem; 
+        }
+
+        .review-rating .star { 
+            color: #ffc107; 
+            font-size: 1rem; 
+        }
+
+        .review-text { 
+            color: #e0e0e0; 
+            line-height: 1.6; 
+            font-size: 0.95rem; 
+            flex-grow: 1; 
+        }
+
+        /* Review Button Section */
+        .review-section {
+            text-align: center;
+            margin-top: 70px;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .review-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+        }
+
+        .review-button {
+            background: linear-gradient(135deg, #333 0%, #444 100%);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+            padding: 18px 35px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-button:hover {
+            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
+            color: black;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #333;
+            border-top: 3px solid #ffc107;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            color: #ffc107;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes infiniteScroll { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(calc(-50%)); } 
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .question-section h1 {
+                font-size: 2.4rem;
+            }
+
+            .question-section .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .options-row-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .option-card {
+                padding: 30px 25px;
+            }
+        }
+
+        /* Accessibility */
+        .option-card:focus {
+            outline: 2px solid #ffc107;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Cargando...</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo" aria-label="OdontoEstética Panamá Logo"></div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="cta-button" onclick="navigateTo('/servicios')">
+                        Agendar Cita
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Question Section -->
+        <section class="question-section">
+            <h1>Odontología Estética en Panamá</h1>
+            <p class="subtitle">Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia en Panamá.</p>
+        </section>
+
+        <!-- Options -->
+        <main class="options-grid">
+            <div class="options-row-1">
+                <div class="option-card featured" onclick="navigateTo('/servicios')" tabindex="0" role="button" aria-label="Ver nuestros servicios odontológicos">
+                    <div class="option-icon">🦷</div>
+                    <div class="option-content">
+                        <h3>Nuestros Servicios</h3>
+                        <p>Descubre nuestros tratamientos de Odontología Estética, Ortodoncia, Endodoncia, Implantes dentales, carillas y más, diseñados para darte una sonrisa saludable y radiante.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-row-2">
+                <div class="option-card" onclick="navigateTo('/doctores')" tabindex="0" role="button" aria-label="Conocer a los especialistas">
+                    <div class="option-icon">👩‍⚕️</div>
+                    <div class="option-content">
+                        <h3>Especialistas</h3>
+                        <p>Conoce a nuestro equipo de doctores expertos en odontología moderna.</p>
+                    </div>
+                </div>
+
+                <div class="option-card" onclick="navigateTo('/ubicacion')" tabindex="0" role="button" aria-label="Ver la ubicación de la clínica">
+                    <div class="option-icon">📍</div>
+                    <div class="option-content">
+                        <h3>Ubicación</h3>
+                        <p>Encuentra nuestra moderna clínica dental en el corazón de Panamá.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <h2>Testimonios de Nuestros Pacientes</h2>
+        <div class="reviews-carousel">
+            <div class="reviews-track">
+                <!-- Single set of reviews -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AC</div>
+                        <div class="reviewer-info">
+                            <h4>Ana Cristina</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia. Los resultados superaron mis expectativas."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">PJ</div>
+                        <div class="reviewer-info">
+                            <h4>Pilar Jaén</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">NS</div>
+                        <div class="reviewer-info">
+                            <h4>Neomalda Saucedo</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional. Altamente recomendado."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">MP</div>
+                        <div class="reviewer-info">
+                            <h4>Mary Pérez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RF</div>
+                        <div class="reviewer-info">
+                            <h4>Roberto Fernández</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LS</div>
+                        <div class="reviewer-info">
+                            <h4>Lucía Sánchez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
+                </div>
+                
+                <!-- Duplicate set for seamless loop -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AC</div>
+                        <div class="reviewer-info">
+                            <h4>Ana Cristina</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia. Los resultados superaron mis expectativas."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">PJ</div>
+                        <div class="reviewer-info">
+                            <h4>Pilar Jaén</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">NS</div>
+                        <div class="reviewer-info">
+                            <h4>Neomalda Saucedo</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional. Altamente recomendado."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">MP</div>
+                        <div class="reviewer-info">
+                            <h4>Mary Pérez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RF</div>
+                        <div class="reviewer-info">
+                            <h4>Roberto Fernández</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LS</div>
+                        <div class="reviewer-info">
+                            <h4>Lucía Sánchez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Button Section -->
+    <div class="main-content" style="flex: 0 1 auto; padding-top: 0; padding-bottom: 80px;">
+        <section class="review-section">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJqaJFoKCprI8R8LvyyPkpQDs" target="_blank" class="review-button">
+                ⭐ Déjanos tu reseña en Google
+            </a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> OdontoEstética, S.A. - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navigation function
+        function navigateTo(page) {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = page;
+            }, 800);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const cards = document.querySelectorAll('.option-card');
+            let currentIndex = Array.from(cards).indexOf(document.activeElement);
+            
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+                    cards[currentIndex].focus();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+                    cards[currentIndex].focus();
+                    break;
+                case 'Enter':
+                case ' ':
+                    if (document.activeElement.classList.contains('option-card')) {
+                        e.preventDefault();
+                        document.activeElement.click();
+                    }
+                    break;
+            }
+        });
+
+        // Make cards focusable
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.setAttribute('tabindex', '0');
+        });
+    </script>
+</body>
+</html>
