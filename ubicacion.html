@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicación - Odonto Estética Panamá | Torre Generali, Obarrio</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffc107">
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Visita Odonto Estética Panamá en Torre Generali, Obarrio. La clínica odontológica más renombrada de Panamá te espera en el corazón de la ciudad con estacionamiento disponible.">
     <meta name="keywords" content="odonto estetica panama ubicacion, clinica dental obarrio, dentista torre generali, odontologia estetica panama direccion, calle 54 panama">
     <meta name="author" content="Odonto Estética Panamá">
     <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ubicación - Odonto Estética Panamá | Torre Generali, Obarrio">
+    <meta property="og:description" content="Visita Odonto Estética Panamá en Torre Generali, Obarrio. La clínica odontológica más renombrada de Panamá te espera en el corazón de la ciudad.">
+    <meta property="og:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
+    <meta property="og:url" content="https://odontoestetica.com.pa/ubicacion">
+    <meta property="og:site_name" content="Odonto Estética Panamá">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ubicación - Odonto Estética Panamá | Torre Generali, Obarrio">
+    <meta name="twitter:description" content="Visita Odonto Estética Panamá en Torre Generali, Obarrio. La clínica odontológica más renombrada de Panamá te espera en el corazón de la ciudad.">
+    <meta name="twitter:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
     
     <style>
         * {
@@ -17,20 +37,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #000000;
             color: white;
             min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-
+        
         /* Back Button */
         .back-button {
             position: fixed;
@@ -50,26 +70,26 @@
             align-items: center;
             gap: 8px;
         }
-
+        
         .back-button:hover {
             background: #ffcd38;
             transform: translateX(-5px);
         }
-
+        
         /* Header */
         .page-header {
             text-align: center;
             margin-bottom: 60px;
             padding-top: 40px;
         }
-
+        
         .page-header h1 {
             font-size: 3.2rem;
             color: #ffc107;
             margin-bottom: 20px;
             font-weight: 700;
         }
-
+        
         .page-header p {
             font-size: 1.3rem;
             color: #ccc;
@@ -77,87 +97,69 @@
             margin: 0 auto;
             line-height: 1.6;
         }
-
-        /* Map Section */
-        .map-section {
+        
+        /* Hours Section */
+        .hours-section {
             background: #1a1a1a;
             border: 2px solid #333;
             border-radius: 25px;
             padding: 40px;
-            margin-bottom: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .map-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(255, 193, 7, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .map-section h2 {
-            color: #ffc107;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
             text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hours-section h3 {
+            color: #ffc107;
+            font-size: 2rem;
+            margin-bottom: 30px;
             font-weight: 700;
         }
-
-        .map-placeholder {
-            width: 100%;
-            height: 500px;
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .hours-item {
             background: #2a2a2a;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #444;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #444;
         }
-
-        .map-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-
-        .map-text {
+        
+        .hours-item h4 {
             color: #ffc107;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: center;
             margin-bottom: 10px;
+            font-weight: 600;
         }
-
-        .address-text {
+        
+        .hours-item p {
             color: #ccc;
             font-size: 1rem;
-            text-align: center;
-            line-height: 1.5;
         }
-
+        
+        .hours-item.closed {
+            opacity: 0.7;
+        }
+        
+        .hours-item.closed h4 {
+            color: #ff6b6b;
+        }
+        
         /* Action Buttons */
         .action-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 0;
         }
-
+        
         .action-button {
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             border: 2px solid #333;
             border-radius: 15px;
-            padding: 25px 20px;
+            padding: 30px 25px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -166,7 +168,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .action-button::before {
             content: '';
             position: absolute;
@@ -177,95 +179,55 @@
             background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
             transition: left 0.5s;
         }
-
+        
         .action-button:hover::before {
             left: 100%;
         }
-
+        
         .action-button:hover {
             border-color: #ffc107;
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(255, 193, 7, 0.2);
         }
-
+        
         .action-button.primary {
             background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
             color: black;
             border-color: #ffc107;
         }
-
+        
         .action-button.primary:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
         }
-
+        
         .action-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             display: block;
         }
-
+        
         .action-button h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             font-weight: 600;
         }
-
+        
         .action-button.primary h3 {
             color: black;
         }
-
+        
         .action-button p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.8;
             line-height: 1.4;
         }
-
+        
         .action-button.primary p {
             color: black;
             opacity: 0.7;
         }
-
-        /* Hours Section */
-        .hours-section {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            border-radius: 25px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .hours-section h3 {
-            color: #ffc107;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .hours-item {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #444;
-        }
-
-        .hours-item h4 {
-            color: #ffc107;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .hours-item p {
-            color: #ccc;
-            font-size: 1rem;
-        }
-
+        
         /* Responsive */
         @media (max-width: 768px) {
             .back-button {
@@ -274,26 +236,27 @@
                 padding: 10px 14px;
                 font-size: 1rem;
             }
-
+            
             .page-header h1 {
                 font-size: 2.5rem;
             }
-
-            .map-section, .hours-section {
+            
+            .hours-section {
                 padding: 30px 20px;
+                margin-bottom: 40px;
             }
-
-            .map-placeholder {
-                height: 350px;
-            }
-
+            
             .action-buttons {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
-
+            
             .hours-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .action-button {
+                padding: 25px 20px;
             }
         }
     </style>
@@ -303,29 +266,49 @@
     <button class="back-button" onclick="goBack()">
         ← Volver
     </button>
-
+    
     <div class="container">
         <!-- Header -->
         <header class="page-header">
-            <h1>Ubicación en Panamá</h1>
+            <h1>Nuestra Ubicación</h1>
             <p>Nos encontramos en el corazón de Panamá, en Torre Generali, Obarrio. Un lugar accesible y moderno para brindarte la mejor atención odontológica.</p>
         </header>
-
-        <!-- Map Section -->
-        <section class="map-section">
-            <h2>Ubicación en Panamá</h2>
-            <div class="map-placeholder">
-                <!-- Placeholder for Panama map - replace with actual map image -->
-                <img src="https://placehold.co/800x500/2a2a2a/ffc107?text=Mapa+de+Panamá" alt="Mapa de Panamá - Ubicación Odonto Estética">
+        
+        <!-- Hours Section -->
+        <section class="hours-section">
+            <h3>Horarios de Atención</h3>
+            <div class="hours-grid">
+                <div class="hours-item">
+                    <h4>Lunes</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h4>Martes</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h4>Miércoles</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h4>Jueves</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h4>Viernes</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h4>Sábado</h4>
+                    <p>9:00 AM - 1:00 PM</p>
+                </div>
+                <div class="hours-item closed">
+                    <h4>Domingo</h4>
+                    <p>Cerrado</p>
+                </div>
             </div>
-            <p class="map-text">Torre Generali, Obarrio</p>
-            <p class="address-text">
-                Calle 54 Este, Obarrio<br>
-                Torre Generali, Piso 20, Local 20A<br>
-                Panamá, Panamá
-            </p>
         </section>
-
+        
         <!-- Action Buttons -->
         <div class="action-buttons">
             <div class="action-button" onclick="openDirections()">
@@ -333,58 +316,28 @@
                 <h3>Obtener Direcciones</h3>
                 <p>Navega hasta nuestra clínica con Google Maps</p>
             </div>
-
-            <div class="action-button">
-                <span class="action-icon">🚗</span>
-                <h3>Estacionamiento</h3>
-                <p>Disponible en Torre Generali, acceso fácil y seguro</p>
-            </div>
-
             <div class="action-button primary" onclick="goToServices()">
                 <span class="action-icon">📅</span>
                 <h3>Agendar Consulta</h3>
                 <p>Reserva tu cita con nuestros especialistas</p>
             </div>
         </div>
-
-        <!-- Hours Section -->
-        <section class="hours-section">
-            <h3>Horarios de Atención</h3>
-            <div class="hours-grid">
-                <div class="hours-item">
-                    <h4>Lunes - Viernes</h4>
-                    <p>8:00 AM - 6:00 PM</p>
-                </div>
-                <div class="hours-item">
-                    <h4>Sábados</h4>
-                    <p>8:00 AM - 2:00 PM</p>
-                </div>
-                <div class="hours-item">
-                    <h4>Domingos</h4>
-                    <p>Cerrado</p>
-                </div>
-                <div class="hours-item">
-                    <h4>Emergencias</h4>
-                    <p>Disponible 24/7</p>
-                </div>
-            </div>
-        </section>
     </div>
-
+    
     <script>
         function goBack() {
             window.location.href = '/';
         }
-
+        
         function goToServices() {
             window.location.href = '/servicios';
         }
-
+        
         function openDirections() {
             const directionsUrl = 'https://www.google.com/maps/dir//Clinica+Dental+Odontoestetica+by+Dr.+Morci,+Calle+54+Este,+Obarrio+Torre+Generali,+Piso+20,+Local+20A,+Panam%C3%A1,+Provincia+de+Panam%C3%A1/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8faca9a0a045a2a9:0x3b4029f9c8f2bbf0?sa=X&ved=1t:57443&ictx=111';
             window.open(directionsUrl, '_blank');
         }
-
+        
         // Add interactive effects
         document.querySelectorAll('.action-button').forEach(button => {
             button.addEventListener('mouseenter', () => {
