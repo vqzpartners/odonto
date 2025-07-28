@@ -115,6 +115,23 @@
             transition: left 0.5s;
         }
 
+        .service-card::after {
+            content: 'AGENDAR CONSULTA';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffc107;
+            color: black;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
         .service-card:hover::before {
             left: 100%;
         }
@@ -124,6 +141,11 @@
             background: #2a2a2a;
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(255, 193, 7, 0.2);
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
         }
 
         .service-icon {
@@ -155,6 +177,7 @@
             color: #ccc;
             line-height: 1.6;
             font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         /* Modal */
@@ -168,18 +191,21 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             animation: fadeIn 0.3s ease;
+            overflow-y: auto;
         }
 
         .modal-content {
             background-color: #1a1a1a;
-            margin: 5% auto;
+            margin: 2% auto;
             padding: 40px;
             border: 2px solid #ffc107;
             border-radius: 20px;
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
             position: relative;
             animation: slideIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close {
@@ -191,6 +217,7 @@
             position: absolute;
             top: 15px;
             right: 25px;
+            z-index: 1001;
         }
 
         .close:hover {
@@ -202,6 +229,7 @@
             margin-bottom: 30px;
             font-size: 2rem;
             text-align: center;
+            padding-right: 40px;
         }
 
         .service-description {
@@ -212,6 +240,7 @@
             line-height: 1.6;
         }
 
+        /* Desktop Before/After */
         .before-after {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -237,8 +266,62 @@
             border: 2px solid #333;
         }
 
+        /* Mobile Image Switcher */
+        .mobile-image-switcher {
+            display: none;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .mobile-image-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .mobile-image-container img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+
+        .image-indicator {
+            color: #ffc107;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .switch-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .switch-btn {
+            background: #ffc107;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .switch-btn:hover {
+            background: #ffcd38;
+            transform: translateY(-2px);
+        }
+
+        .switch-btn.active {
+            background: #ffcd38;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -275,6 +358,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
 
         .submit-btn:hover {
@@ -310,13 +394,39 @@
                 gap: 20px;
             }
 
+            .service-card::after {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            .service-card {
+                padding-bottom: 60px;
+            }
+
+            /* Hide desktop before/after, show mobile switcher */
             .before-after {
-                grid-template-columns: 1fr;
+                display: none;
+            }
+
+            .mobile-image-switcher {
+                display: block;
             }
 
             .modal-content {
-                margin: 10% auto;
+                margin: 5% auto;
                 padding: 30px 20px;
+                width: 95%;
+            }
+
+            .modal h2 {
+                font-size: 1.6rem;
+                padding-right: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 25px 15px;
             }
         }
     </style>
@@ -331,13 +441,13 @@
         <!-- Header -->
         <header class="page-header">
             <h1>Nuestros Servicios Especializados</h1>
-            <p>En Odonto Estética Panamá combinamos la ciencia y el arte para crear sonrisas perfectas. Nuestros tratamientos utilizan tecnología de vanguardia para resultados naturales y duraderos.</p>
+            <p>Agenda tu consulta especializada y descubre cómo podemos transformar tu sonrisa con nuestros tratamientos de vanguardia.</p>
         </header>
 
         <!-- Services Grid -->
         <div class="services-grid">
             <div class="service-card" onclick="openModal('ortodoncia')">
-                <div class="service-icon">✨</div>
+                <div class="service-icon">🦷</div>
                 <h3>Ortodoncia Estética</h3>
                 <p>Corrige la posición de tus dientes con tratamientos invisibles y estéticos. Utilizamos tecnología biomimética para lograr sonrisas perfectas respetando la armonía facial natural.</p>
             </div>
@@ -361,8 +471,19 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Servicio</h2>
-            <p class="service-description" id="serviceDescription"></p>
             
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="patientName">Nombre:</label>
+                    <input type="text" id="patientName" name="patientName" required placeholder="Ingresa tu nombre">
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    📱 Agendar Consulta
+                </button>
+            </form>
+
+            <!-- Desktop Before/After -->
             <div class="before-after">
                 <div class="before-after-item">
                     <h4>Antes del Tratamiento</h4>
@@ -374,21 +495,25 @@
                 </div>
             </div>
 
-            <form id="appointmentForm">
-                <div class="form-group">
-                    <label for="patientName">Tu nombre completo:</label>
-                    <input type="text" id="patientName" name="patientName" required placeholder="Ingresa tu nombre completo">
+            <!-- Mobile Image Switcher -->
+            <div class="mobile-image-switcher">
+                <div class="image-indicator" id="imageIndicator">Antes del Tratamiento</div>
+                <div class="mobile-image-container">
+                    <img id="mobileImage" src="/placeholder.svg" alt="Imagen del tratamiento">
                 </div>
-                
-                <button type="submit" class="submit-btn">
-                    📱 Agendar Consulta Especializada por WhatsApp
-                </button>
-            </form>
+                <div class="switch-controls">
+                    <button class="switch-btn active" id="beforeBtn" onclick="showBefore()">Antes</button>
+                    <button class="switch-btn" id="afterBtn" onclick="showAfter()">Después</button>
+                </div>
+            </div>
+
+            <p class="service-description" id="serviceDescription"></p>
         </div>
     </div>
 
     <script>
         let currentService = '';
+        let currentMobileView = 'before';
 
         const serviceData = {
             ortodoncia: {
@@ -413,20 +538,67 @@
 
         function openModal(service) {
             currentService = service;
+            currentMobileView = 'before';
             const data = serviceData[service];
             
             document.getElementById('modalTitle').textContent = data.title;
             document.getElementById('serviceDescription').textContent = data.description;
             document.getElementById('beforeImage').src = data.beforeImage;
             document.getElementById('afterImage').src = data.afterImage;
+            
+            // Set mobile image to before initially
+            document.getElementById('mobileImage').src = data.beforeImage;
+            document.getElementById('imageIndicator').textContent = 'Antes del Tratamiento';
+            document.getElementById('beforeBtn').classList.add('active');
+            document.getElementById('afterBtn').classList.remove('active');
+            
             document.getElementById('serviceModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+
+            // Auto-switch images every 3 seconds on mobile
+            if (window.innerWidth <= 768) {
+                startAutoSwitch();
+            }
         }
 
         function closeModal() {
             document.getElementById('serviceModal').style.display = 'none';
             document.body.style.overflow = 'auto';
             document.getElementById('patientName').value = '';
+            clearInterval(window.autoSwitchInterval);
+        }
+
+        function showBefore() {
+            if (currentService) {
+                const data = serviceData[currentService];
+                document.getElementById('mobileImage').src = data.beforeImage;
+                document.getElementById('imageIndicator').textContent = 'Antes del Tratamiento';
+                document.getElementById('beforeBtn').classList.add('active');
+                document.getElementById('afterBtn').classList.remove('active');
+                currentMobileView = 'before';
+            }
+        }
+
+        function showAfter() {
+            if (currentService) {
+                const data = serviceData[currentService];
+                document.getElementById('mobileImage').src = data.afterImage;
+                document.getElementById('imageIndicator').textContent = 'Resultado Final';
+                document.getElementById('afterBtn').classList.add('active');
+                document.getElementById('beforeBtn').classList.remove('active');
+                currentMobileView = 'after';
+            }
+        }
+
+        function startAutoSwitch() {
+            clearInterval(window.autoSwitchInterval);
+            window.autoSwitchInterval = setInterval(() => {
+                if (currentMobileView === 'before') {
+                    showAfter();
+                } else {
+                    showBefore();
+                }
+            }, 3000);
         }
 
         function goBack() {
@@ -471,6 +643,15 @@
             if (event.key === 'Escape') {
                 closeModal();
             }
+        });
+
+        // Clear auto-switch when user interacts with buttons
+        document.getElementById('beforeBtn').addEventListener('click', () => {
+            clearInterval(window.autoSwitchInterval);
+        });
+
+        document.getElementById('afterBtn').addEventListener('click', () => {
+            clearInterval(window.autoSwitchInterval);
         });
     </script>
 </body>
