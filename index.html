@@ -34,6 +34,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Schema.org markup -->
     <script type="application/ld+json">
@@ -381,6 +382,12 @@
             margin-bottom: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
         .option-card.featured .option-icon {
@@ -776,7 +783,7 @@
     }
     
     .stat-label {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
             .hero-cta {
@@ -949,7 +956,8 @@
         </div>
 
         <a href="/servicios" class="hero-button whatsapp-button" onclick="navigateTo('/servicios')">
-            📅 Agendar Consulta
+            <i class="fab fa-whatsapp"></i>
+                Agendar Consulta
         </a>
     </section>
 
