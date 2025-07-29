@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OdontoEstética Panamá - Odontología Estética, Ortodoncia, Implantes</title>
-    
+        
     <!-- SEO Meta Tags -->
     <meta name="description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
     <meta name="keywords" content="OdontoEstética Panamá, odontología estética panamá, ortodoncia panamá, endodoncia panamá, implantes dentales panamá, clinica dental panama, dentista panama, carillas dentales panama, blanqueamiento dental panamá">
@@ -14,7 +14,7 @@
     <meta name="geo.placename" content="Panamá">
     <meta name="geo.position" content="8.9824;-79.5199">
     <meta name="ICBM" content="8.9824, -79.5199">
-    
+        
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://odontoestetica.com.pa/">
@@ -23,20 +23,19 @@
     <meta property="og:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="OdontoEstética Panamá">
-    
+        
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://odontoestetica.com.pa/">
     <meta property="twitter:title" content="OdontoEstética Panamá - Odontología Estética, Ortodoncia, Implantes">
     <meta property="twitter:description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
     <meta property="twitter:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
-    
+        
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    
+            
     <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
@@ -74,7 +73,7 @@
       ]
     }
     </script>
-    
+        
     <style>
         * {
             margin: 0;
@@ -254,7 +253,7 @@
             line-height: 1.3;
         }
 
-        /* Options Grid - Fixed Width */
+        /* Options Grid - Updated with background images */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -279,8 +278,6 @@
         }
 
         .option-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 2px solid #333;
             border-radius: 20px;
             padding: 35px 30px;
             cursor: pointer;
@@ -289,13 +286,51 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.6s ease forwards;
             width: 100%;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-height: 280px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Background images for each card */
+        .option-card:nth-child(1) {
+            background-image: url('img/sonrisa.jpg');
+        }
+
+        .option-card:nth-child(1):nth-child(1) {
+            background-image: url('img/sonrisa.jpg');
+        }
+
+        .options-row-2 .option-card:nth-child(1) {
+            background-image: url('img/doctor.jpg');
+        }
+
+        .options-row-2 .option-card:nth-child(2) {
+            background-image: url('img/panama.jpg');
+        }
+
+        /* Dark overlay for better text readability */
+        .option-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .option-card:hover::after {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
         }
 
         .option-card:nth-child(1) { animation-delay: 0.1s; }
@@ -303,7 +338,7 @@
         .option-card:nth-child(3) { animation-delay: 0.3s; }
         .option-card:nth-child(4) { animation-delay: 0.4s; }
 
-        /* Enhanced hover effects for better clickability indication */
+        /* Enhanced hover effects */
         .option-card::before {
             content: '';
             position: absolute;
@@ -313,6 +348,7 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.15), transparent);
             transition: left 0.6s ease;
+            z-index: 2;
         }
 
         .option-card:hover::before {
@@ -320,13 +356,63 @@
         }
 
         .option-card:hover {
-            border-color: #ffc107;
-            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a2a 100%);
             transform: translateY(-15px) scale(1.02);
             box-shadow: 0 20px 40px rgba(255, 193, 7, 0.25), 0 0 0 1px rgba(255, 193, 7, 0.1);
         }
 
-        /* Mobile-first click indicator - always visible on mobile */
+        /* Remove the old icon styling */
+        .option-icon {
+            display: none;
+        }
+
+        /* Update content styling to work with background images */
+        .option-content {
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            margin-top: auto;
+            padding-bottom: 70px;
+        }
+
+        .option-card.featured .option-content {
+            max-width: 550px;
+        }
+
+        .option-content h3 {
+            font-size: 1.8rem;
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .option-card.featured .option-content h3 {
+            font-size: 2.2rem;
+        }
+
+        .option-card:hover .option-content h3 {
+            color: #ffcd38;
+        }
+
+        .option-content p {
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            font-weight: 400;
+        }
+
+        .option-card.featured .option-content p {
+            font-size: 1.1rem;
+        }
+
+        .option-card:hover .option-content p {
+            color: #ffffff;
+        }
+
+        /* Update click indicators */
         .option-card .click-indicator {
             position: absolute;
             bottom: 20px;
@@ -343,6 +429,8 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            z-index: 3;
+            backdrop-filter: blur(10px);
         }
 
         .option-card:hover .click-indicator {
@@ -367,81 +455,14 @@
             transform: translateY(-10px);
             transition: all 0.3s ease;
             animation: pulseGlow 2s infinite;
-        }
-
-        .option-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #333 0%, #444 100%);
-            border: 3px solid #ffc107;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: #ffc107;
-            margin-bottom: 25px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+            z-index: 3;
+            backdrop-filter: blur(10px);
         }
 
         .whatsapp-icon {
             width: 20px;
             height: 20px;
             flex-shrink: 0;
-        }
-
-        .option-card.featured .option-icon {
-            width: 95px;
-            height: 95px;
-            font-size: 2.8rem;
-        }
-
-        .option-card:hover .option-icon {
-            transform: scale(1.15) rotate(5deg);
-            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
-            color: black;
-            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-        }
-
-        .option-content {
-            width: 100%;
-            padding-bottom: 70px; /* Space for the click indicator */
-        }
-
-        .option-card.featured .option-content {
-            max-width: 550px;
-        }
-
-        .option-content h3 {
-            font-size: 1.5rem;
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .option-card.featured .option-content h3 {
-            font-size: 1.8rem;
-        }
-
-        .option-card:hover .option-content h3 {
-            color: #ffcd38;
-        }
-
-        .option-content p {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .option-card.featured .option-content p {
-            font-size: 1.1rem;
-        }
-
-        .option-card:hover .option-content p {
-            color: #e0e0e0;
         }
 
         /* Reviews Carousel Section */
@@ -735,12 +756,12 @@
         }
 
         @keyframes pulseGlow {
-            0%, 100% { 
-                opacity: 0.6;
+            0%, 100% {
+                 opacity: 0.6;
                 transform: translateY(-10px) scale(1);
             }
-            50% { 
-                opacity: 1;
+            50% {
+                 opacity: 1;
                 transform: translateY(-10px) scale(1.05);
             }
         }
@@ -764,28 +785,28 @@
                 font-size: 1.1rem;
             }
 
-    .hero-stats {
-        gap: 25px;
-        margin-bottom: 40px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 0 20px;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .stat-item {
-        min-width: 100px;
-        flex-shrink: 0;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.6rem;
-    }
+            .hero-stats {
+                gap: 25px;
+                margin-bottom: 40px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0 20px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .stat-item {
+                min-width: 100px;
+                flex-shrink: 0;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.6rem;
+            }
 
             .hero-cta {
                 flex-direction: column;
@@ -798,6 +819,7 @@
 
             .option-card {
                 padding: 30px 25px;
+                min-height: 250px;
             }
 
             /* Mobile-specific enhancements for clickability */
@@ -821,7 +843,6 @@
             /* Add touch feedback */
             .option-card:active {
                 transform: scale(0.98);
-                background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
             }
 
             .footer-content {
@@ -829,12 +850,12 @@
                 gap: 30px;
                 text-align: center;
             }
-            
+                        
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-            
+                        
             .social-links {
                 justify-content: center;
             }
@@ -852,14 +873,9 @@
             50% { transform: scale(1.05); }
         }
 
-        .option-card:hover .option-icon {
-            animation: pulse 2s infinite;
-        }
-
         /* Enhanced mobile touch targets */
         @media (max-width: 768px) {
             .option-card {
-                min-height: 200px;
                 touch-action: manipulation;
             }
         }
@@ -887,24 +903,25 @@
             background: linear-gradient(135deg, #ffcd38 0%, #ffd54f 100%);
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4);
-}
+        }
 
-.hero-button.whatsapp-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
+        .hero-button.whatsapp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
 
-.hero-button.whatsapp-button:hover::before {
-    left: 100%;
-}
+        .hero-button.whatsapp-button:hover::before {
+            left: 100%;
+        }
     </style>
 </head>
+
 <body>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
@@ -930,13 +947,13 @@
         <div class="hero-badge">
             ⭐ Clínica #1 en Odontología Estética
         </div>
-        
+                
         <h1 class="hero-title">Transformamos Tu Sonrisa</h1>
-        
+                
         <p class="hero-subtitle">
             Especialistas en Odontología Estética, Ortodoncia e Implantes en Panamá
         </p>
-        
+                
         <p class="hero-description">
             Con más de 10 años de experiencia, ofrecemos tratamientos de vanguardia utilizando la tecnología más avanzada para brindarte la sonrisa de tus sueños en un ambiente cómodo y profesional.
         </p>
@@ -967,7 +984,6 @@
         <div class="options-row-1">
             <div class="option-card featured" onclick="navigateTo('/servicios')" tabindex="0" role="button" aria-label="Ver nuestros servicios odontológicos">
                 <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-icon">🦷</div>
                 <div class="option-content">
                     <h3>Nuestros Servicios</h3>
                     <p>Descubre nuestros tratamientos de Odontología Estética, Ortodoncia, Endodoncia, Implantes dentales, carillas y más, diseñados para darte una sonrisa saludable y radiante.</p>
@@ -982,7 +998,6 @@
         <div class="options-row-2">
             <div class="option-card" onclick="navigateTo('/doctores')" tabindex="0" role="button" aria-label="Conocer a los especialistas">
                 <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-icon">👩‍⚕️</div>
                 <div class="option-content">
                     <h3>Especialistas</h3>
                     <p>Conoce a nuestro equipo de doctores expertos en odontología moderna.</p>
@@ -995,7 +1010,6 @@
 
             <div class="option-card" onclick="navigateTo('/ubicacion')" tabindex="0" role="button" aria-label="Ver la ubicación de la clínica">
                 <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-icon">📍</div>
                 <div class="option-content">
                     <h3>Ubicación</h3>
                     <p>Encuentra nuestra moderna clínica dental en el corazón de Panamá.</p>
@@ -1079,7 +1093,7 @@
                     </div>
                     <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
                 </div>
-                
+                                
                 <!-- Duplicate set for seamless loop -->
                 <div class="review-card">
                     <div class="review-header">
@@ -1159,7 +1173,7 @@
                     </div>
                     <p class="footer-description">Transformando sonrisas con excelencia y tecnología de vanguardia desde 2014.</p>
                 </div>
-                
+                                
                 <div class="footer-section">
                     <h4>Síguenos</h4>
                     <div class="social-links">
@@ -1176,7 +1190,7 @@
                     </div>
                 </div>
             </div>
-            
+                        
             <div class="footer-bottom">
                 <div class="footer-reviews">
                     <a href="https://search.google.com/local/writereview?placeid=ChIJqaJFoKCprI8R8LvyyPkpQDs" target="_blank" class="review-button-footer">
@@ -1197,7 +1211,7 @@
         function navigateTo(page) {
             const loading = document.getElementById('loading');
             loading.style.display = 'flex';
-            
+                        
             setTimeout(() => {
                 window.location.href = page;
             }, 800);
@@ -1215,7 +1229,7 @@
         document.addEventListener('keydown', (e) => {
             const cards = document.querySelectorAll('.option-card');
             let currentIndex = Array.from(cards).indexOf(document.activeElement);
-            
+                        
             switch(e.key) {
                 case 'ArrowRight':
                 case 'ArrowDown':
@@ -1270,7 +1284,7 @@
                 card.addEventListener('touchstart', function() {
                     this.style.transform = 'scale(0.98)';
                 });
-                
+                                
                 card.addEventListener('touchend', function() {
                     setTimeout(() => {
                         this.style.transform = '';
