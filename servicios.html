@@ -20,6 +20,9 @@
 
     <link rel="icon" type="image/png" href="img/favicon.png">
     
+    <!-- Font Awesome for WhatsApp icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -35,7 +38,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -68,14 +71,15 @@
         /* Header */
         .page-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             padding-top: 40px;
         }
 
         .page-header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #ffc107;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .page-header p {
@@ -89,160 +93,209 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
             margin-bottom: 60px;
         }
 
         .service-card {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            border-radius: 20px;
-            padding: 40px 30px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            border-radius: 25px;
+            padding: 50px 35px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .service-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
-            transition: left 0.5s;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, #ffc107, #ffcd38);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 22px;
+            z-index: -2;
         }
 
         .service-card::after {
-            content: 'AGENDAR CONSULTA';
+            content: '';
             position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffc107;
-            color: black;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 19px;
+            z-index: -1;
         }
 
         .service-card:hover::before {
-            left: 100%;
+            opacity: 1;
         }
 
         .service-card:hover {
-            border-color: #ffc107;
-            background: #2a2a2a;
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.2);
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-5px);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(255, 193, 7, 0.25);
         }
 
         .service-icon {
-            width: 100px;
-            height: 100px;
-            background: #ffc107;
-            border-radius: 20px;
-            margin: 0 auto 25px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #ffc107, #ffcd38);
+            border-radius: 30px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: black;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.3);
+            position: relative;
         }
 
         .service-card:hover .service-icon {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.5);
         }
 
         .service-card h3 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #ffc107;
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .service-card p {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
 
-        /* Modal */
+        .cta-button {
+            background: linear-gradient(145deg, #ffc107, #ffcd38);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 193, 7, 0.4);
+            background: linear-gradient(145deg, #ffcd38, #ffe082);
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            color: #ccc;
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Modal - Now Fullscreen */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            animation: fadeIn 0.3s ease;
+            background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
+            animation: fadeIn 0.4s ease;
             overflow-y: auto;
         }
 
         .modal-content {
-            background-color: #1a1a1a;
-            margin: 2% auto;
-            padding: 40px;
-            border: 2px solid #ffc107;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
+            width: 100%;
+            height: 100vh;
+            padding: 60px 40px 40px;
             position: relative;
-            animation: slideIn 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .close {
             color: #ffc107;
-            float: right;
-            font-size: 28px;
+            font-size: 40px;
             font-weight: bold;
             cursor: pointer;
             position: absolute;
-            top: 15px;
-            right: 25px;
-            z-index: 1001;
+            top: 30px;
+            right: 40px;
+            z-index: 2001;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 50%;
         }
 
         .close:hover {
             color: #ffcd38;
+            background: rgba(255, 193, 7, 0.2);
+            transform: rotate(90deg);
         }
 
         .modal h2 {
             color: #ffc107;
-            margin-bottom: 30px;
-            font-size: 2rem;
+            margin-bottom: 40px;
+            font-size: 3rem;
             text-align: center;
-            padding-right: 40px;
+            font-weight: 700;
         }
 
-        .service-description {
-            color: #ccc;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.6;
+        /* Image Gallery */
+        .image-gallery {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 50px;
         }
 
-        /* Desktop Before/After */
         .before-after {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -256,23 +309,31 @@
 
         .before-after-item h4 {
             color: #ffc107;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .before-after-item img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #333;
+            border-radius: 15px;
+            border: 3px solid #ffc107;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .before-after-item img:hover {
+            transform: scale(1.05);
         }
 
         /* Mobile Image Switcher */
         .mobile-image-switcher {
             display: none;
             text-align: center;
-            margin-bottom: 30px;
+            width: 100%;
+            max-width: 400px;
         }
 
         .mobile-image-container {
@@ -282,16 +343,17 @@
 
         .mobile-image-container img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #333;
+            border-radius: 15px;
+            border: 3px solid #ffc107;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
         }
 
         .image-indicator {
             color: #ffc107;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 15px;
         }
 
@@ -302,70 +364,89 @@
         }
 
         .switch-btn {
-            background: #ffc107;
+            background: linear-gradient(145deg, #ffc107, #ffcd38);
             color: black;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 25px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
         .switch-btn:hover {
-            background: #ffcd38;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
         }
 
         .switch-btn.active {
-            background: #ffcd38;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+            background: linear-gradient(145deg, #ffcd38, #ffe082);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Form Styling */
+        .appointment-form {
+            width: 100%;
+            max-width: 400px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .form-group label {
             display: block;
             color: #ffc107;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background: #2a2a2a;
+            padding: 20px;
+            border: 3px solid #333;
+            border-radius: 15px;
+            background: rgba(42, 42, 42, 0.8);
             color: white;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .form-group input:focus {
             outline: none;
             border-color: #ffc107;
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+            transform: scale(1.02);
+        }
+
+        .submit-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
         }
 
         .submit-btn {
             width: 100%;
-            background: #ffc107;
+            background: linear-gradient(145deg, #ffc107, #ffcd38);
             color: black;
             border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 20px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
         }
 
         .submit-btn:hover {
-            background: #ffcd38;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+            background: linear-gradient(145deg, #ffcd38, #ffe082);
         }
 
         @keyframes fadeIn {
@@ -373,9 +454,15 @@
             to { opacity: 1; }
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes slideInUp {
+            from { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
         }
 
         /* Responsive */
@@ -388,21 +475,26 @@
             }
 
             .page-header h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .service-card::after {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
+                gap: 30px;
             }
 
             .service-card {
-                padding-bottom: 60px;
+                padding: 40px 25px;
+            }
+
+            .service-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.8rem;
             }
 
             /* Hide desktop before/after, show mobile switcher */
@@ -415,20 +507,32 @@
             }
 
             .modal-content {
-                margin: 5% auto;
-                padding: 30px 20px;
-                width: 95%;
+                padding: 40px 20px 20px;
+            }
+
+            .close {
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
             }
 
             .modal h2 {
-                font-size: 1.6rem;
-                padding-right: 30px;
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
             .modal-content {
-                padding: 25px 15px;
+                padding: 30px 15px 15px;
             }
         }
     </style>
@@ -442,74 +546,95 @@
     <div class="container">
         <!-- Header -->
         <header class="page-header">
-            <h1>Nuestros Servicios Especializados</h1>
-            <p>Agenda tu consulta especializada y descubre cómo podemos transformar tu sonrisa con nuestros tratamientos de vanguardia.</p>
+            <h1>Servicios Especializados</h1>
+            <p>Transforma tu sonrisa con nuestros tratamientos de vanguardia. Agenda tu consulta y descubre la diferencia.</p>
         </header>
 
         <!-- Services Grid -->
         <div class="services-grid">
             <div class="service-card" onclick="openModal('ortodoncia')">
-                <div class="service-icon">🦷</div>
+                <div class="service-icon">✨</div>
                 <h3>Ortodoncia</h3>
-                <p>Corrige tus dientes con ortodoncia estética. Usamos tecnología biomimética para sonrisas perfectas y naturales.</p>
+                <ul class="features-list">
+                    <li>Brackets invisibles y estéticos</li>
+                    <li>Tecnología biomimética avanzada</li>
+                    <li>Resultados naturales garantizados</li>
+                    <li>Tratamientos cómodos y rápidos</li>
+                </ul>
+                <button class="cta-button">Agendar Consulta</button>
             </div>
 
             <div class="service-card" onclick="openModal('endodoncia')">
                 <div class="service-icon">🔬</div>
                 <h3>Endodoncia</h3>
-                <p>Salvamos tus dientes con endodoncia avanzada. Nuestras técnicas biomiméticas garantizan tratamientos cómodos y duraderos.</p>
+                <ul class="features-list">
+                    <li>Técnicas biológicas avanzadas</li>
+                    <li>Salvamos dientes sin dolor</li>
+                    <li>Materiales biocompatibles</li>
+                    <li>Procedimientos mínimamente invasivos</li>
+                </ul>
+                <button class="cta-button">Agendar Consulta</button>
             </div>
 
             <div class="service-card" onclick="openModal('implantes')">
-                <div class="service-icon">⚕️</div>
+                <div class="service-icon">💎</div>
                 <h3>Implantes</h3>
-                <p>Reemplaza dientes perdidos con implantes de última generación. Imitan función y estética natural, con mínima invasión.</p>
+                <ul class="features-list">
+                    <li>Implantes de última generación</li>
+                    <li>Función y estética natural</li>
+                    <li>Procedimientos mínimamente invasivos</li>
+                    <li>Recuperación rápida garantizada</li>
+                </ul>
+                <button class="cta-button">Agendar Consulta</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal - Now Fullscreen -->
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
+            
             <h2 id="modalTitle">Servicio</h2>
             
-            <form id="appointmentForm">
+            <!-- Image Gallery -->
+            <div class="image-gallery">
+                <!-- Desktop Before/After -->
+                <div class="before-after">
+                    <div class="before-after-item">
+                        <h4>Antes</h4>
+                        <img id="beforeImage" src="/placeholder.svg" alt="Antes del tratamiento">
+                    </div>
+                    <div class="before-after-item">
+                        <h4>Después</h4>
+                        <img id="afterImage" src="/placeholder.svg" alt="Después del tratamiento">
+                    </div>
+                </div>
+
+                <!-- Mobile Image Switcher -->
+                <div class="mobile-image-switcher">
+                    <div class="image-indicator" id="imageIndicator">Antes del Tratamiento</div>
+                    <div class="mobile-image-container">
+                        <img id="mobileImage" src="/placeholder.svg" alt="Imagen del tratamiento">
+                    </div>
+                    <div class="switch-controls">
+                        <button class="switch-btn active" id="beforeBtn" onclick="showBefore()">Antes</button>
+                        <button class="switch-btn" id="afterBtn" onclick="showAfter()">Después</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="appointmentForm" class="appointment-form">
                 <div class="form-group">
-                    <label for="patientName">Nombre:</label>
-                    <input type="text" id="patientName" name="patientName" required placeholder="Ingresa tu nombre">
+                    <label for="patientName">Tu Nombre:</label>
+                    <input type="text" id="patientName" name="patientName" required placeholder="Escribe tu nombre aquí">
                 </div>
                 
                 <button type="submit" class="submit-btn">
-                    📱 Agendar Consulta
+                    <i class="fab fa-whatsapp"></i> Agendar Mi Consulta Ahora
                 </button>
             </form>
-
-            <!-- Desktop Before/After -->
-            <div class="before-after">
-                <div class="before-after-item">
-                    <h4>Antes del Tratamiento</h4>
-                    <img id="beforeImage" src="/placeholder.svg" alt="Antes del tratamiento">
-                </div>
-                <div class="before-after-item">
-                    <h4>Resultado Final</h4>
-                    <img id="afterImage" src="/placeholder.svg" alt="Después del tratamiento">
-                </div>
-            </div>
-
-            <!-- Mobile Image Switcher -->
-            <div class="mobile-image-switcher">
-                <div class="image-indicator" id="imageIndicator">Antes del Tratamiento</div>
-                <div class="mobile-image-container">
-                    <img id="mobileImage" src="/placeholder.svg" alt="Imagen del tratamiento">
-                </div>
-                <div class="switch-controls">
-                    <button class="switch-btn active" id="beforeBtn" onclick="showBefore()">Antes</button>
-                    <button class="switch-btn" id="afterBtn" onclick="showAfter()">Después</button>
-                </div>
-            </div>
-
-            <p class="service-description" id="serviceDescription"></p>
         </div>
     </div>
 
@@ -520,19 +645,16 @@
         const serviceData = {
             ortodoncia: {
                 title: 'Ortodoncia Estética',
-                description: 'Transformamos sonrisas con ortodoncia invisible y brackets estéticos. Nuestro enfoque biomimético garantiza resultados naturales que respetan la armonía facial, utilizando tecnología avanzada para tratamientos cómodos y efectivos.',
                 beforeImage: 'img/servicios/o1.jpg',
                 afterImage: 'img/servicios/o2.jpg'
             },
             endodoncia: {
                 title: 'Endodoncia Biológica',
-                description: 'Salvamos dientes con técnicas de endodoncia biológica avanzada. Nuestros tratamientos preservan la vitalidad dental utilizando materiales biocompatibles y técnicas mínimamente invasivas para resultados duraderos.',
                 beforeImage: 'img/servicios/e1.jpg',
                 afterImage: 'img/servicios/e2.jpg'
             },
             implantes: {
-                title: 'Implantes Estéticos',
-                description: 'Recupera tu sonrisa con implantes dentales de última generación. Utilizamos técnicas biomimética para crear dientes que lucen y funcionan como naturales, con procedimientos mínimamente invasivos y recuperación rápida.',
+                title: 'Implantes Dentales',
                 beforeImage: 'img/servicios/i1.jpg',
                 afterImage: 'img/servicios/i2.jpg'
             }
@@ -544,7 +666,6 @@
             const data = serviceData[service];
             
             document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('serviceDescription').textContent = data.description;
             document.getElementById('beforeImage').src = data.beforeImage;
             document.getElementById('afterImage').src = data.afterImage;
             
@@ -557,7 +678,7 @@
             document.getElementById('serviceModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
 
-            // Auto-switch images every 3 seconds on mobile
+            // Auto-switch images every 4 seconds on mobile
             if (window.innerWidth <= 768) {
                 startAutoSwitch();
             }
@@ -600,14 +721,14 @@
                 } else {
                     showBefore();
                 }
-            }, 3000);
+            }, 4000);
         }
 
         function goBack() {
             window.location.href = '/';
         }
 
-        // Form submission
+        // Form submission with new WhatsApp message
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -619,12 +740,13 @@
             }
 
             const serviceNames = {
-                ortodoncia: 'Ortodoncia Estética',
-                endodoncia: 'Endodoncia Biológica',
-                implantes: 'Implantes Estéticos'
+                ortodoncia: 'Ortodoncia',
+                endodoncia: 'Endodoncia',
+                implantes: 'Implantes Dentales'
             };
 
-            const message = `¡Hola! Soy ${patientName} y estoy interesado/a en una consulta especializada de ${serviceNames[currentService]} en Odonto Estética Panamá. Me gustaría conocer más sobre sus tratamientos de odontología estética, biomimética y biológica. ¿Podrían ayudarme con información sobre disponibilidad y costos? ¡Gracias!`;
+            const message = `Hola Soy ${patientName} me interesa agendar una consulta para ${serviceNames[currentService]}.
+¿Podrías ayudarme con información sobre disponibilidad y costos? ¡Gracias!`;
             
             const whatsappUrl = `https://wa.me/50767272029?text=${encodeURIComponent(message)}`;
             
@@ -654,6 +776,13 @@
 
         document.getElementById('afterBtn').addEventListener('click', () => {
             clearInterval(window.autoSwitchInterval);
+        });
+
+        // Prevent card click when button is clicked
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
     </script>
 </body>
