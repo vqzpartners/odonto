@@ -183,6 +183,11 @@
             margin-bottom: 30px;
         }
 
+        .cta-button i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
         .cta-button {
             background: linear-gradient(145deg, #ffc107, #ffcd38);
             color: black;
@@ -292,7 +297,7 @@
         /* Image Gallery */
         .image-gallery {
             width: 100%;
-            max-width: 500px;
+            max-width: 700px;
             margin-bottom: 50px;
         }
 
@@ -316,7 +321,7 @@
 
         .before-after-item img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid #ffc107;
@@ -556,36 +561,36 @@
                 <div class="service-icon">✨</div>
                 <h3>Ortodoncia</h3>
                 <ul class="features-list">
-                    <li>Brackets invisibles y estéticos</li>
-                    <li>Tecnología biomimética avanzada</li>
-                    <li>Resultados naturales garantizados</li>
-                    <li>Tratamientos cómodos y rápidos</li>
+                    <li>Sonrisas perfectas con tecnología biomimética</li>
+                    <li>Resultados naturales que respetan tu armonía facial</li>
                 </ul>
-                <button class="cta-button">Agendar Consulta</button>
+                <button class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Agendar Consulta
+                </button>
             </div>
 
             <div class="service-card" onclick="openModal('endodoncia')">
                 <div class="service-icon">🔬</div>
                 <h3>Endodoncia</h3>
                 <ul class="features-list">
-                    <li>Técnicas biológicas avanzadas</li>
-                    <li>Salvamos dientes sin dolor</li>
-                    <li>Materiales biocompatibles</li>
-                    <li>Procedimientos mínimamente invasivos</li>
+                    <li>Preservamos la vitalidad natural de tus dientes</li>
+                    <li>Tratamientos biológicos con materiales biocompatibles</li>
                 </ul>
-                <button class="cta-button">Agendar Consulta</button>
+                <button class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Agendar Consulta
+                </button>
             </div>
 
             <div class="service-card" onclick="openModal('implantes')">
                 <div class="service-icon">💎</div>
                 <h3>Implantes</h3>
                 <ul class="features-list">
-                    <li>Implantes de última generación</li>
-                    <li>Función y estética natural</li>
-                    <li>Procedimientos mínimamente invasivos</li>
-                    <li>Recuperación rápida garantizada</li>
+                    <li>Restauramos tu sonrisa imitando la naturaleza</li>
+                    <li>Tecnología biomimética para resultados que lucen reales</li>
                 </ul>
-                <button class="cta-button">Agendar Consulta</button>
+                <button class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Agendar Consulta
+                </button>
             </div>
         </div>
     </div>
@@ -778,10 +783,12 @@
             clearInterval(window.autoSwitchInterval);
         });
 
-        // Prevent card click when button is clicked
-        document.querySelectorAll('.cta-button').forEach(button => {
+        // Make buttons also open modal instead of preventing click
+        document.querySelectorAll('.cta-button').forEach((button, index) => {
+            const services = ['ortodoncia', 'endodoncia', 'implantes'];
             button.addEventListener('click', function(e) {
                 e.stopPropagation();
+                openModal(services[index]);
             });
         });
     </script>
