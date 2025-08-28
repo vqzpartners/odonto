@@ -23,6 +23,9 @@
     <!-- Font Awesome for WhatsApp icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Tally Form Script -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -245,18 +248,23 @@
             height: 100%;
             background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
             animation: fadeIn 0.4s ease;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .modal-content {
             width: 100%;
             height: 100vh;
-            padding: 60px 40px 40px;
+            padding: 60px 0 0 0;
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: calc(100vh - 60px);
+            border: 0;
+            margin: 0;
         }
 
         .close {
@@ -282,205 +290,6 @@
             color: #ffcd38;
             background: rgba(255, 193, 7, 0.2);
             transform: rotate(90deg);
-        }
-
-        .modal h2 {
-            color: #ffc107;
-            margin-bottom: 40px;
-            font-size: 3rem;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        /* Image Gallery */
-        .image-gallery {
-            width: 100%;
-            max-width: none;
-            margin-bottom: 50px;
-        }
-
-        .before-after {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .before-after-item {
-            text-align: center;
-            position: relative;
-        }
-
-        .before-after-item::after {
-            content: '';
-            display: block;
-            padding-bottom: 56.25%; /* 16:9 ratio */
-        }
-
-        .before-after-item h4 {
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .before-after-item img {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 ratio like YouTube thumbnail */
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid #ffc107;
-            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .before-after-item {
-            position: relative;
-        }
-
-        .before-after-item img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding-bottom: 0;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 15px;
-            border: 3px solid #ffc107;
-            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .before-after-item img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Mobile Image Switcher */
-        .mobile-image-switcher {
-            display: none;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .mobile-image-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .mobile-image-container img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 15px;
-            border: 3px solid #ffc107;
-            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
-        }
-
-        .image-indicator {
-            color: #ffc107;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .switch-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .switch-btn {
-            background: linear-gradient(145deg, #ffc107, #ffcd38);
-            color: black;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .switch-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
-        }
-
-        .switch-btn.active {
-            background: linear-gradient(145deg, #ffcd38, #ffe082);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
-        }
-
-        /* Form Styling */
-        .appointment-form {
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #ffc107;
-            margin-bottom: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 20px;
-            border: 3px solid #333;
-            border-radius: 15px;
-            background: rgba(42, 42, 42, 0.8);
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #ffc107;
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
-            transform: scale(1.02);
-        }
-
-        .submit-btn i {
-            margin-right: 10px;
-            font-size: 1.4rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(145deg, #ffc107, #ffcd38);
-            color: black;
-            border: none;
-            padding: 20px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
-            background: linear-gradient(145deg, #ffcd38, #ffe082);
         }
 
         @keyframes fadeIn {
@@ -531,27 +340,18 @@
                 font-size: 1.8rem;
             }
 
-            /* Hide desktop before/after, show mobile switcher */
-            .before-after {
-                display: none;
-            }
-
-            .mobile-image-switcher {
-                display: block;
-            }
-
             .modal-content {
-                padding: 40px 20px 20px;
+                padding: 40px 0 0 0;
+            }
+
+            .modal-iframe {
+                height: calc(100vh - 40px);
             }
 
             .close {
                 top: 20px;
                 right: 20px;
                 font-size: 30px;
-            }
-
-            .modal h2 {
-                font-size: 2rem;
             }
         }
 
@@ -566,7 +366,11 @@
             }
 
             .modal-content {
-                padding: 30px 15px 15px;
+                padding: 30px 0 0 0;
+            }
+
+            .modal-iframe {
+                height: calc(100vh - 30px);
             }
         }
     </style>
@@ -624,169 +428,30 @@
         </div>
     </div>
 
-    <!-- Modal - Now Fullscreen -->
+    <!-- Modal - Now Fullscreen with Tally Form -->
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             
-            <h2 id="modalTitle">Servicio</h2>
-            
-            <!-- Image Gallery -->
-            <div class="image-gallery">
-                <!-- Desktop Before/After -->
-                <div class="before-after">
-                    <div class="before-after-item">
-                        <h4>Antes</h4>
-                        <img id="beforeImage" src="/placeholder.svg" alt="Antes del tratamiento">
-                    </div>
-                    <div class="before-after-item">
-                        <h4>Después</h4>
-                        <img id="afterImage" src="/placeholder.svg" alt="Después del tratamiento">
-                    </div>
-                </div>
-
-                <!-- Mobile Image Switcher -->
-                <div class="mobile-image-switcher">
-                    <div class="image-indicator" id="imageIndicator">Antes del Tratamiento</div>
-                    <div class="mobile-image-container">
-                        <img id="mobileImage" src="/placeholder.svg" alt="Imagen del tratamiento">
-                    </div>
-                    <div class="switch-controls">
-                        <button class="switch-btn active" id="beforeBtn" onclick="showBefore()">Antes</button>
-                        <button class="switch-btn" id="afterBtn" onclick="showAfter()">Después</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form -->
-            <form id="appointmentForm" class="appointment-form">
-                <div class="form-group">
-                    <label for="patientName">Tu Nombre:</label>
-                    <input type="text" id="patientName" name="patientName" required placeholder="Escribe tu nombre aquí">
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fab fa-whatsapp"></i> Agendar Mi Consulta Ahora
-                </button>
-            </form>
+            <!-- Tally Form Embed -->
+            <iframe class="modal-iframe" data-tally-src="https://tally.so/r/3jjyZE" frameborder="0" marginheight="0" marginwidth="0" title="Agenda tu consulta"></iframe>
         </div>
     </div>
 
     <script>
-        let currentService = '';
-        let currentMobileView = 'before';
-
-        const serviceData = {
-            ortodoncia: {
-                title: 'Ortodoncia Estética',
-                beforeImage: 'img/servicios/o1.jpg',
-                afterImage: 'img/servicios/o2.jpg'
-            },
-            endodoncia: {
-                title: 'Endodoncia Biológica',
-                beforeImage: 'img/servicios/e1.jpg',
-                afterImage: 'img/servicios/e2.jpg'
-            },
-            implantes: {
-                title: 'Implantes Dentales',
-                beforeImage: 'img/servicios/i1.jpg',
-                afterImage: 'img/servicios/i2.jpg'
-            }
-        };
-
         function openModal(service) {
-            currentService = service;
-            currentMobileView = 'before';
-            const data = serviceData[service];
-            
-            document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('beforeImage').src = data.beforeImage;
-            document.getElementById('afterImage').src = data.afterImage;
-            
-            // Set mobile image to before initially
-            document.getElementById('mobileImage').src = data.beforeImage;
-            document.getElementById('imageIndicator').textContent = 'Antes del Tratamiento';
-            document.getElementById('beforeBtn').classList.add('active');
-            document.getElementById('afterBtn').classList.remove('active');
-            
             document.getElementById('serviceModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
-
-            // Auto-switch images every 4 seconds on mobile
-            if (window.innerWidth <= 768) {
-                startAutoSwitch();
-            }
         }
 
         function closeModal() {
             document.getElementById('serviceModal').style.display = 'none';
             document.body.style.overflow = 'auto';
-            document.getElementById('patientName').value = '';
-            clearInterval(window.autoSwitchInterval);
-        }
-
-        function showBefore() {
-            if (currentService) {
-                const data = serviceData[currentService];
-                document.getElementById('mobileImage').src = data.beforeImage;
-                document.getElementById('imageIndicator').textContent = 'Antes del Tratamiento';
-                document.getElementById('beforeBtn').classList.add('active');
-                document.getElementById('afterBtn').classList.remove('active');
-                currentMobileView = 'before';
-            }
-        }
-
-        function showAfter() {
-            if (currentService) {
-                const data = serviceData[currentService];
-                document.getElementById('mobileImage').src = data.afterImage;
-                document.getElementById('imageIndicator').textContent = 'Resultado Final';
-                document.getElementById('afterBtn').classList.add('active');
-                document.getElementById('beforeBtn').classList.remove('active');
-                currentMobileView = 'after';
-            }
-        }
-
-        function startAutoSwitch() {
-            clearInterval(window.autoSwitchInterval);
-            window.autoSwitchInterval = setInterval(() => {
-                if (currentMobileView === 'before') {
-                    showAfter();
-                } else {
-                    showBefore();
-                }
-            }, 4000);
         }
 
         function goBack() {
             window.location.href = '/';
         }
-
-        // Form submission with new WhatsApp message
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const patientName = document.getElementById('patientName').value.trim();
-            
-            if (!patientName) {
-                alert('Por favor, ingresa tu nombre completo.');
-                return;
-            }
-
-            const serviceNames = {
-                ortodoncia: 'Ortodoncia',
-                endodoncia: 'Endodoncia',
-                implantes: 'Implantes Dentales'
-            };
-
-            const message = `Hola Soy ${patientName} me interesa agendar una consulta para ${serviceNames[currentService]}.
-¿Podrías ayudarme con información sobre disponibilidad y costos? ¡Gracias!`;
-            
-            const whatsappUrl = `https://wa.me/50767272029?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
-            closeModal();
-        });
 
         // Close modal when clicking outside
         window.onclick = function(event) {
@@ -801,15 +466,6 @@
             if (event.key === 'Escape') {
                 closeModal();
             }
-        });
-
-        // Clear auto-switch when user interacts with buttons
-        document.getElementById('beforeBtn').addEventListener('click', () => {
-            clearInterval(window.autoSwitchInterval);
-        });
-
-        document.getElementById('afterBtn').addEventListener('click', () => {
-            clearInterval(window.autoSwitchInterval);
         });
 
         // Make buttons also open modal instead of preventing click
