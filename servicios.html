@@ -453,6 +453,52 @@
             window.location.href = '/';
         }
 
+        // Detect when page loses focus (new tab/window opened) and close modal
+        window.addEventListener('blur', function() {
+            // Small delay to ensure the blur is from opening a new tab
+            setTimeout(function() {
+                if (document.getElementById('serviceModal').style.display === 'block') {
+                    closeModal();
+                }
+            }, 500);
+        });
+
+        // Alternative method: Listen for visibility changes
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && document.getElementById('serviceModal').style.display === 'block') {
+                // Page became hidden (user switched tabs/apps), close modal
+                setTimeout(function() {
+                    if (document.hidden) {
+                        closeModal();
+                    }
+                }, 1000); // Wait 1 second to avoid false positives
+            }
+        });
+
+        // Listen for messages from iframe (if Tally sends postMessage when opening links)
+        window.addEventListener('message', function(event) {
+            // Check if message is from Tally domain
+            if (event.origin.includes('tally.so')) {
+                // If Tally indicates a link was clicked or form was submitted
+                if (event.data && (event.data.type === 'TALLY_FORM_SUBMIT' || 
+                                  event.data.type === 'TALLY_EXTERNAL_LINK' ||
+                                  event.data.includes('redirect') ||
+                                  event.data.includes('external'))) {
+                    setTimeout(closeModal, 500);
+                }
+            }
+        });
+
+        // Monitor for popup/new window creation
+        let originalOpen = window.open;
+        window.open = function(...args) {
+            // If modal is open and window.open is called, close modal
+            if (document.getElementById('serviceModal').style.display === 'block') {
+                setTimeout(closeModal, 300);
+            }
+            return originalOpen.apply(this, args);
+        };
+
         // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('serviceModal');
