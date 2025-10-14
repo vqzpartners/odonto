@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Especialistas - Odonto Estética Panamá | Doctores Certificados</title>
+    <title>Nuestros especialistas - Odontoestética Panamá</title>
     
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Conoce a nuestros especialistas en Odonto Estética Panamá. Doctores certificados en odontología estética, biomimética y biológica con experiencia internacional.">
     <meta name="keywords" content="dentistas panama, especialistas odonto estetica panama, ortodoncistas panama, endodoncistas panama, implantologos panama">
-    <meta name="author" content="Odonto Estética Panamá">
-    <meta name="robots" content="index, follow">
-
     <link rel="icon" type="image/png" href="img/favicon.png">
     
     <style>
@@ -24,13 +20,48 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #000000;
             color: white;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #ffc107 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .bg-pattern::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ffc107 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.03; }
+            50% { transform: scale(1.2); opacity: 0.06; }
         }
 
         /* Back Button */
@@ -41,154 +72,273 @@
             background: #ffc107;
             color: black;
             border: none;
-            padding: 12px 16px;
-            border-radius: 10px;
+            padding: 12px 20px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            z-index: 100;
+            z-index: 1000;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3);
         }
 
         .back-button:hover {
             background: #ffcd38;
             transform: translateX(-5px);
+            box-shadow: 0 6px 30px rgba(255, 193, 7, 0.5);
         }
 
-        /* Header */
-        .page-header {
-            text-align: center;
-            margin-bottom: 80px;
-            padding-top: 40px;
-        }
-
-        .page-header h1 {
-            font-size: 3.5rem;
-            color: #ffc107;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .page-header p {
-            font-size: 1.3rem;
-            color: #ccc;
-            max-width: 800px;
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 100px 40px 80px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 50px;
+            color: #ffc107;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 50%, #ffd966 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #aaa;
             line-height: 1.6;
+            max-width: 700px;
         }
 
-        /* Doctors Grid */
-        .doctors-grid {
+        /* Doctor Showcase */
+        .doctor-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+            position: relative;
         }
 
-        .doctor-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 2px solid #333;
-            border-radius: 25px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.4s ease;
+        /* Image Side */
+        .doctor-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .doctor-visual:hover .image-frame img {
+            transform: scale(1.05);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
+            color: black;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        /* Content Side */
+        .doctor-content {
+            padding: 40px 0;
+        }
+
+        .doctor-name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .doctor-title {
+            font-size: 1.3rem;
+            color: #ffc107;
+            margin-bottom: 40px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .doctor-bio {
+            font-size: 1.15rem;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .expertise-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background: rgba(255, 193, 7, 0.05);
+            border-color: rgba(255, 193, 7, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .expertise-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .expertise-label {
+            font-size: 1rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .stat-bar {
+            display: flex;
+            gap: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffc107;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.05) 0%, transparent 100%);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            border-radius: 30px;
+            padding: 80px 60px;
+            margin-bottom: 120px;
             position: relative;
             overflow: hidden;
         }
 
-        .doctor-card::before {
-            content: '';
+        .philosophy-section::before {
+            content: '"';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
-            transition: left 0.6s;
+            top: 20px;
+            left: 40px;
+            font-size: 15rem;
+            color: rgba(255, 193, 7, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
-        .doctor-card:hover::before {
-            left: 100%;
+        .philosophy-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .doctor-card:hover {
-            border-color: #ffc107;
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(255, 193, 7, 0.3);
-        }
-
-        .doctor-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 4px solid #ffc107;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .doctor-card:hover .doctor-image {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4);
-        }
-
-        .doctor-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .doctor-name {
-            font-size: 1.8rem;
-            color: #ffc107;
-            margin-bottom: 10px;
+        .philosophy-title {
+            font-size: 2.5rem;
             font-weight: 700;
+            color: #ffc107;
+            margin-bottom: 30px;
         }
 
-        .doctor-specialty {
-            font-size: 1.1rem;
-            color: #999;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .doctor-description {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        /* Future credentials section - hidden for now */
-        .doctor-credentials {
-            display: none; /* Hidden as requested */
-        }
-
-        .doctor-experience {
-            display: none; /* Hidden as requested */
-        }
-
-        /* Note for future implementation */
-        .implementation-note {
-            background: #2a2a2a;
-            border: 1px solid #444;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #888;
+        .philosophy-text {
+            font-size: 1.4rem;
+            color: #ddd;
+            line-height: 1.8;
             font-style: italic;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
             border: 2px solid #ffc107;
-            border-radius: 25px;
-            padding: 60px 40px;
+            border-radius: 30px;
+            padding: 80px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -197,143 +347,257 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.15) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            border-radius: 50%;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            color: #ffc107;
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.15) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
             margin-bottom: 20px;
-            font-weight: 700;
         }
 
-        .cta-section p {
+        .cta-title span {
+            color: #ffc107;
+        }
+
+        .cta-subtitle {
             font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 40px;
-            max-width: 700px;
+            color: #bbb;
+            margin-bottom: 50px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
         }
 
         .cta-button {
             background: #ffc107;
             color: black;
             border: none;
-            padding: 20px 40px;
-            border-radius: 15px;
+            padding: 22px 50px;
+            border-radius: 50px;
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            box-shadow: 0 10px 40px rgba(255, 193, 7, 0.3);
         }
 
         .cta-button:hover {
             background: #ffcd38;
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 15px 50px rgba(255, 193, 7, 0.5);
         }
 
         /* Animations */
-        .doctor-card {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .doctor-card:nth-child(1) { animation-delay: 0.1s; }
-        .doctor-card:nth-child(2) { animation-delay: 0.2s; }
-        .doctor-card:nth-child(3) { animation-delay: 0.3s; }
-
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        .hero-section, .doctor-showcase, .philosophy-section, .cta-section {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .doctor-showcase { animation-delay: 0.2s; }
+        .philosophy-section { animation-delay: 0.4s; }
+        .cta-section { animation-delay: 0.6s; }
+
         /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .doctor-showcase {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .doctor-visual {
+                height: 500px;
+            }
+
+            .stat-bar {
+                gap: 30px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 80px 20px 60px;
+            }
+
             .back-button {
                 top: 20px;
                 left: 20px;
-                padding: 10px 14px;
-                font-size: 1rem;
+                padding: 10px 16px;
+                font-size: 0.9rem;
             }
 
-            .page-header h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
 
-            .page-header p {
+            .hero-subtitle {
                 font-size: 1.1rem;
             }
 
-            .doctors-grid {
+            .doctor-showcase {
+                gap: 40px;
+            }
+
+            .doctor-visual {
+                height: 400px;
+            }
+
+            .doctor-name {
+                font-size: 2.5rem;
+            }
+
+            .expertise-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-bar {
+                flex-direction: column;
                 gap: 30px;
             }
 
-            .doctor-card {
-                padding: 30px 25px;
-            }
-
+            .philosophy-section,
             .cta-section {
-                padding: 40px 25px;
+                padding: 50px 30px;
             }
 
-            .cta-section h2 {
+            .philosophy-title,
+            .cta-title {
                 font-size: 2rem;
+            }
+
+            .philosophy-text {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Back Button -->
+    <div class="bg-pattern"></div>
+
     <button class="back-button" onclick="goBack()">
         ← Volver
     </button>
 
     <div class="container">
-        <!-- Header -->
-        <header class="page-header">
-            <h1>Nuestro Especialista</h1>
-            <p>Conoce a nuestro especialista en odontología estética, biomimética y biológica. Comprometido con crear sonrisas perfectas utilizando tecnología de vanguardia.</p>
-        </header>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <span class="section-tag">Nuestro Especialista</span>
+            <h1 class="hero-title">Excelencia en<br>Odontología Estética</h1>
+            <p class="hero-subtitle">
+                Descubre el arte y la ciencia detrás de sonrisas transformadoras con el Dr. Morci.
+            </p>
+        </section>
 
-        <!-- Doctors Grid -->
-        <div class="doctors-grid">
-            <div class="doctor-card">
-                <div class="doctor-image">
+        <!-- Doctor Showcase -->
+        <section class="doctor-showcase">
+            <div class="doctor-visual">
+                <div class="image-frame">
                     <img src="img/drmorci.jpg" alt="Dr. Morci">
                 </div>
-                <h3 class="doctor-name">Dr. Morci</h3>
-                <p class="doctor-specialty">Especialista en odontología estética</p>
-                <p class="doctor-description">
-                    El Dr. Morci es un especialista líder en odontología estética, biomimética y biológica con reconocimiento internacional.
-                    Su enfoque integral considera no solo la estética dental, sino también la salud general y el bienestar de cada persona.
-                </p>
-                
             </div>
-        </div>
+
+            <div class="doctor-content">
+                <h2 class="doctor-name">Dr. Morci</h2>
+                <p class="doctor-title">Especialista en Odontología Estética, Biomimética & Biológica</p>
+                
+                <p class="doctor-bio">
+                    El Dr. Morci representa la vanguardia en odontología contemporánea, combinando técnicas biomimáticas avanzadas con un enfoque holístico que prioriza tanto la estética dental como el bienestar integral del paciente.
+                </p>
+
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">✨</div>
+                        <div class="expertise-label">Estética Dental</div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🔬</div>
+                        <div class="expertise-label">Biomimética</div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🌿</div>
+                        <div class="expertise-label">Odontología Biológica</div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🎯</div>
+                        <div class="expertise-label">Enfoque Integral</div>
+                    </div>
+                </div>
+
+                <div class="stat-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Años Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3K+</div>
+                        <div class="stat-label">Sonrisas Creadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Satisfacción</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy-section">
+            <div class="philosophy-content">
+                <h3 class="philosophy-title">Nuestra Filosofía</h3>
+                <p class="philosophy-text">
+                    Cada sonrisa cuenta una historia única. Nuestro enfoque va más allá de la técnica dental—consideramos la armonía facial, la salud sistémica y el bienestar emocional de cada persona para crear resultados que son naturalmente perfectos y permanentemente transformadores.
+                </p>
+            </div>
+        </section>
 
         <!-- CTA Section -->
         <section class="cta-section">
-            <h2>Transforma tu Sonrisa Hoy</h2>
-            <p>
-                Nuestro especialista está listo para crear la sonrisa de tus sueños. Con tecnología avanzada y un enfoque personalizado, garantizamos resultados naturales y duraderos.
-            </p>
-            <button class="cta-button" onclick="goToServices()">
-                ✨ Descubre Nuestros Tratamientos
-            </button>
+            <div class="cta-content">
+                <h2 class="cta-title">Tu Sonrisa <span>Perfecta</span> Comienza Aquí</h2>
+                <p class="cta-subtitle">
+                    Descubre cómo nuestro enfoque innovador puede transformar tu sonrisa con resultados naturales y duraderos.
+                </p>
+                <button class="cta-button" onclick="goToServices()">
+                    Explora Nuestros Tratamientos →
+                </button>
+            </div>
         </section>
     </div>
 
@@ -346,15 +610,13 @@
             window.location.href = '/servicios?ref=odontoestetica.com.pa';
         }
 
-        // Add interactive effects
-        document.querySelectorAll('.doctor-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bgPattern = document.querySelector('.bg-pattern');
+            if (bgPattern) {
+                bgPattern.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 </body>
