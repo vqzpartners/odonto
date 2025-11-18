@@ -1297,6 +1297,82 @@
         }
     </script>
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <script>
+  (function() {
+    // --- Configuración ---
+    const imageUrl = "https://cdn.doctores.club/logo-doctores.jpg";
+    const linkText = "El club de doctores";
+    const destinationUrl = "https://doctores.club/";
+
+    // --- Creación del Badge ---
+    // 1. Crear el contenedor principal
+    const badgeContainer = document.createElement("div");
+    badgeContainer.style.position = "fixed";
+    badgeContainer.style.bottom = "20px";
+    badgeContainer.style.right = "20px";
+    badgeContainer.style.zIndex = "9999";
+    badgeContainer.style.opacity = "0";
+    badgeContainer.style.visibility = "hidden";
+    badgeContainer.style.transition = "visibility 0s, opacity 0.3s ease-in-out";
+
+    // 2. Crear el enlace
+    const badgeLink = document.createElement("a");
+    const ref = window.location.hostname;
+    badgeLink.href = `${destinationUrl}?ref=${ref}`;
+    badgeLink.target = "_blank";
+    badgeLink.rel = "noopener noreferrer";
+    badgeLink.style.display = "flex";
+    badgeLink.style.alignItems = "center";
+    badgeLink.style.padding = "10px 15px";
+    badgeLink.style.backgroundColor = "#ffffff";
+    badgeLink.style.borderRadius = "30px";
+    badgeLink.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+    badgeLink.style.textDecoration = "none";
+    badgeLink.style.color = "#333";
+    badgeLink.style.fontFamily = "Arial, sans-serif";
+    badgeLink.style.fontSize = "14px";
+    badgeLink.style.fontWeight = "bold";
+
+    // 3. Crear la imagen
+    const badgeImage = document.createElement("img");
+    badgeImage.src = imageUrl;
+    badgeImage.alt = linkText;
+    badgeImage.style.width = "30px";
+    badgeImage.style.height = "30px";
+    badgeImage.style.borderRadius = "50%";
+    badgeImage.style.marginRight = "10px";
+    badgeImage.style.border = "1px solid #eee";
+
+    // 4. Crear el texto
+    const badgeText = document.createElement("span");
+    badgeText.textContent = linkText;
+
+    // 5. Ensamblar el badge
+    badgeLink.appendChild(badgeImage);
+    badgeLink.appendChild(badgeText);
+    badgeContainer.appendChild(badgeLink);
+    document.body.appendChild(badgeContainer);
+
+    // --- Lógica de visibilidad ---
+    const showBadgeOnScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      const windowSize = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+
+      // Muestra el badge 50px antes de llegar al final
+      if (scrollPosition + windowSize >= bodyHeight - 50) {
+        badgeContainer.style.opacity = "1";
+        badgeContainer.style.visibility = "visible";
+      } else {
+        badgeContainer.style.opacity = "0";
+        badgeContainer.style.visibility = "hidden";
+      }
+    };
+
+    // Añadir el listener para el evento de scroll
+    window.addEventListener("scroll", showBadgeOnScroll);
+  })();
+</script>
 
 </body>
 </html>
