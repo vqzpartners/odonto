@@ -95,7 +95,7 @@
 
         .header-top {
             display: flex;
-            justify-content: center; /* Centered Logo */
+            justify-content: center;
             align-items: center;
         }
 
@@ -212,7 +212,7 @@
             border-radius: 20px;
             padding: 10px;
             border: 1px solid #333;
-            overflow: hidden; /* Oculta scrollbars extras */
+            overflow: hidden;
             min-height: 663px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -311,7 +311,7 @@
             font-weight: 400;
         }
 
-        /* Reviews Carousel Section */
+        /* Reviews Carousel Section - FIXED LOOP */
         .reviews-section {
             padding: 4rem 0;
             background: #000000;
@@ -350,14 +350,15 @@
 
         .reviews-carousel {
             position: relative;
+            width: 100%;
         }
 
         .reviews-track {
             display: flex;
             gap: 2rem;
-            animation: infiniteScroll 60s linear infinite;
+            animation: infiniteScroll 40s linear infinite; /* Adjusted speed */
             width: max-content;
-            padding: 0 2rem;
+            padding: 0 1rem; /* Adjust padding to not break calc */
         }
 
         .reviews-track:hover {
@@ -370,19 +371,19 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 150px;
+            width: 100px;
             z-index: 10;
             pointer-events: none;
         }
 
         .reviews-carousel::before {
             left: 0;
-            background: linear-gradient(to right, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            background: linear-gradient(to right, #000000 0%, transparent 100%);
         }
 
         .reviews-carousel::after {
             right: 0;
-            background: linear-gradient(to left, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            background: linear-gradient(to left, #000000 0%, transparent 100%);
         }
 
         .review-card {
@@ -442,55 +443,41 @@
             flex-grow: 1;
         }
 
-        /* --- SCHEDULE SECTION --- */
-        .schedule-section {
-            max-width: 800px;
-            margin: 0 auto 50px;
-            padding: 40px 20px;
-            text-align: center;
-            background: #0a0a0a;
-            border-radius: 20px;
-            border: 1px solid #222;
-        }
-
-        .schedule-title {
-            color: #ffc107;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .schedule-item {
+        /* --- STATUS BADGE SECTION --- */
+        .status-container {
             display: flex;
-            flex-direction: column;
-            padding: 10px;
-            background: #151515;
-            border-radius: 10px;
-            border: 1px solid #333;
+            justify-content: center;
+            margin-bottom: 40px;
         }
 
-        .schedule-day {
-            color: #fff;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .schedule-time {
-            color: #ccc;
-            font-size: 0.9rem;
+        .status-open {
+            background: rgba(40, 167, 69, 0.15);
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.3);
+            animation: pulseGreen 2s infinite;
         }
 
-        /* --- ACTION CARDS SECTION (New Bottom Cards) --- */
+        .status-closed {
+            background: rgba(220, 53, 69, 0.15);
+            color: #e74c3c;
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+
+        /* --- ACTION CARDS SECTION --- */
         .action-cards-section {
             max-width: 1000px;
             margin: 0 auto 60px;
@@ -518,7 +505,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* Dark Card (Directions) */
         .card-dark {
             background-color: #1a1a1a;
             color: white;
@@ -530,7 +516,6 @@
             background-color: #222;
         }
 
-        /* Yellow Card (Booking) */
         .card-yellow {
             background-color: #ffc107;
             color: #000;
@@ -547,14 +532,8 @@
             margin-bottom: 20px;
         }
         
-        /* Specific icon colors */
-        .card-dark .card-icon {
-            color: #a8c7fa; /* Light blueish for map */
-        }
-        
-        .card-yellow .card-icon {
-            color: #0056b3; /* Blueish for calendar */
-        }
+        .card-dark .card-icon { color: #a8c7fa; }
+        .card-yellow .card-icon { color: #0056b3; }
 
         .card-title {
             font-size: 1.5rem;
@@ -568,11 +547,11 @@
             line-height: 1.4;
         }
 
-        /* Footer */
+        /* Footer - UPDATED */
         .footer {
             background: linear-gradient(135deg, #111 0%, #000 100%);
-            padding: 60px 0 30px;
-            text-align: center; /* Centralized */
+            padding: 70px 0 30px;
+            text-align: center;
             margin-top: auto;
             border-top: 1px solid #222;
         }
@@ -588,16 +567,16 @@
         }
 
         .footer-logo-img {
-            height: 50px;
+            height: 90px; /* Logo made larger */
             width: auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .footer-description {
             color: #999;
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.6;
-            max-width: 500px;
+            max-width: 350px; /* Forced wrap to approx 2 lines */
             margin: 0 auto;
         }
 
@@ -671,32 +650,24 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Fixed infinite scroll calculation */
         @keyframes infiniteScroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50%)); }
+            100% { transform: translateX(-50%); } /* Moves exactly half the track width */
+        }
+
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-            }
-
-            .logo {
-                height: 45px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .action-cards-section {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .header-top { flex-direction: column; }
+            .logo { height: 45px; }
+            .hero-title { font-size: 2.5rem; }
+            .action-cards-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -753,10 +724,9 @@
         </div>
     </section>
 
-    <!-- Form Section (ID added for anchor) -->
+    <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <!-- Added scrolling="no" to iframe -->
             <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
@@ -765,9 +735,7 @@
     <!-- Doctors Section -->
     <section class="doctors-section">
         <h2 class="section-title">Nuestro Equipo de Especialistas</h2>
-        
         <div class="doctors-grid">
-            <!-- 1. Dr. Edgar Morcillo -->
             <div class="doctor-card">
                 <div class="doctor-img-container">
                     <img src="https://cdn.odontoestetica.com.pa/drmorci.jpg" alt="Dr. Edgar Morcillo" class="doctor-img">
@@ -775,8 +743,6 @@
                 <h3 class="doctor-name">Dr. Edgar Morcillo</h3>
                 <p class="doctor-specialty">Director Clínico<br>Especialista en Odontología Estética, Biomimética & Biológica</p>
             </div>
-
-            <!-- 2. Dra. Maria Cristina Abrego -->
             <div class="doctor-card">
                 <div class="doctor-img-container">
                     <img src="https://cdn.odontoestetica.com.pa/dramaria.jpg" alt="Dra. Maria Cristina Abrego" class="doctor-img">
@@ -784,8 +750,6 @@
                 <h3 class="doctor-name">Dra. Maria Cristina Abrego</h3>
                 <p class="doctor-specialty">Especialista en Endodoncia y Microcirugía Apical</p>
             </div>
-
-            <!-- 3. Dr. Kurt Sáez -->
             <div class="doctor-card">
                 <div class="doctor-img-container">
                     <img src="https://cdn.odontoestetica.com.pa/drkurt.jpg" alt="Dr. Kurt Sáez" class="doctor-img">
@@ -793,8 +757,6 @@
                 <h3 class="doctor-name">Dr. Kurt Sáez</h3>
                 <p class="doctor-specialty">Especialista en Ortodoncia y Ortopedia Maxilar</p>
             </div>
-
-            <!-- 4. Placeholder 1 -->
             <div class="doctor-card">
                 <div class="doctor-img-container">
                     <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
@@ -802,8 +764,6 @@
                 <h3 class="doctor-name">Dra. Alejandra Gómez</h3>
                 <p class="doctor-specialty">Odontología General e Integral</p>
             </div>
-
-            <!-- 5. Placeholder 2 -->
             <div class="doctor-card">
                 <div class="doctor-img-container">
                     <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
@@ -818,8 +778,9 @@
     <section class="reviews-section">
         <h2>Testimonios de Nuestros Pacientes</h2>
         <div class="reviews-carousel">
+            <!-- IMPORTANT: Content is duplicated for seamless loop -->
             <div class="reviews-track">
-                <!-- Single set of reviews -->
+                <!-- SET 1 -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">AC</div>
@@ -828,9 +789,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia. Los resultados superaron mis expectativas."</p>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">PJ</div>
@@ -841,8 +801,7 @@
                     </div>
                     <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
                 </div>
-                <!-- ... other reviews ... -->
-                 <div class="review-card">
+                <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">NS</div>
                         <div class="reviewer-info">
@@ -850,9 +809,9 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional. Altamente recomendado."</p>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional."</p>
                 </div>
-                 <div class="review-card">
+                <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">MP</div>
                         <div class="reviewer-info">
@@ -862,51 +821,107 @@
                     </div>
                     <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
                 </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RF</div>
+                        <div class="reviewer-info">
+                            <h4>Roberto Fernández</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LS</div>
+                        <div class="reviewer-info">
+                            <h4>Lucía Sánchez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales."</p>
+                </div>
+
+                <!-- SET 2 (Duplicate) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AC</div>
+                        <div class="reviewer-info">
+                            <h4>Ana Cristina</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">PJ</div>
+                        <div class="reviewer-info">
+                            <h4>Pilar Jaén</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">NS</div>
+                        <div class="reviewer-info">
+                            <h4>Neomalda Saucedo</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">MP</div>
+                        <div class="reviewer-info">
+                            <h4>Mary Pérez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RF</div>
+                        <div class="reviewer-info">
+                            <h4>Roberto Fernández</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LS</div>
+                        <div class="reviewer-info">
+                            <h4>Lucía Sánchez</h4>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales."</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: Schedule Section -->
-    <section class="schedule-section">
-        <h3 class="schedule-title">Horario de Atención</h3>
-        <div class="schedule-grid">
-            <div class="schedule-item">
-                <span class="schedule-day">Lunes</span>
-                <span class="schedule-time">9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="schedule-item">
-                <span class="schedule-day">Martes</span>
-                <span class="schedule-time">9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="schedule-item">
-                <span class="schedule-day">Miércoles</span>
-                <span class="schedule-time">9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="schedule-item">
-                <span class="schedule-day">Jueves</span>
-                <span class="schedule-time">9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="schedule-item">
-                <span class="schedule-day">Viernes</span>
-                <span class="schedule-time">9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="schedule-item">
-                <span class="schedule-day">Sábado</span>
-                <span class="schedule-time">9:00 AM - 1:00 PM</span>
-            </div>
+    <!-- NEW: Status Badge (Replaces Schedule) -->
+    <div class="status-container">
+        <div id="status-badge" class="status-badge">
+            Cargando estado...
         </div>
-    </section>
+    </div>
 
-    <!-- NEW: Action Cards Section (Map & Booking) -->
+    <!-- Action Cards Section -->
     <section class="action-cards-section">
-        <!-- Directions Card -->
         <a href="https://www.google.com/maps/dir//Clinica+Dental+Odontoestetica+by+Dr.+Morci,+Calle+54+Este,+Obarrio+Torre+Generali,+Piso+20,+Local+20A,+Panam%C3%A1,+Provincia+de+Panam%C3%A1/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8faca9a0a045a2a9:0x3b4029f9c8f2bbf0?sa=X&ved=1t:57443&ictx=111" target="_blank" class="action-card card-dark">
             <i class="fas fa-map-marked-alt card-icon"></i>
             <h3 class="card-title">Obtener Direcciones</h3>
             <p class="card-text">Navega hasta nuestra clínica con Google Maps</p>
         </a>
 
-        <!-- Booking Card (Scrolls to form) -->
         <a href="#agendar" class="action-card card-yellow">
             <i class="fas fa-calendar-check card-icon"></i>
             <h3 class="card-title">Agendar Consulta</h3>
@@ -917,12 +932,12 @@
     <!-- Updated Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <!-- Logo -->
+            <!-- Logo Larger -->
             <div class="footer-brand">
                 <img src="img/logo-white-firma.svg" alt="OdontoEstética Panamá" class="footer-logo-img">
             </div>
             
-            <!-- Description -->
+            <!-- Description broken in two lines via max-width -->
             <p class="footer-description">Transformando sonrisas con excelencia y tecnología de vanguardia desde 2014.</p>
             
             <!-- Social Icons (Updated Link) -->
@@ -954,9 +969,47 @@
             loading.style.display = 'flex';
             setTimeout(() => { window.location.href = page; }, 800);
         }
+
+        // Logic for "Open/Closed" Badge based on Panama Time
+        (function updateStatus() {
+            const badge = document.getElementById('status-badge');
+            
+            // Get current time in Panama
+            const now = new Date();
+            const panamaTimeStr = now.toLocaleString("en-US", {timeZone: "America/Panama"});
+            const panamaDate = new Date(panamaTimeStr);
+            
+            const day = panamaDate.getDay(); // 0 is Sunday, 1 is Monday...
+            const hour = panamaDate.getHours();
+            
+            let isOpen = false;
+
+            // Lunes (1) a Viernes (5): 9:00 - 18:00
+            if (day >= 1 && day <= 5) {
+                if (hour >= 9 && hour < 18) {
+                    isOpen = true;
+                }
+            }
+            // Sábado (6): 9:00 - 13:00
+            else if (day === 6) {
+                if (hour >= 9 && hour < 13) {
+                    isOpen = true;
+                }
+            }
+            // Domingo (0): Cerrado
+
+            if (isOpen) {
+                badge.className = 'status-badge status-open';
+                badge.innerHTML = '🟢 Abierto ahora';
+            } else {
+                badge.className = 'status-badge status-closed';
+                badge.innerHTML = '🔴 Cerrado ahora';
+            }
+        })();
     </script>
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <!-- Doctor's Club Badge Script remains same -->
+    
+    <!-- Doctor's Club Badge Script -->
     <script>
     (function() {
         const imageUrl = "https://cdn.doctores.club/logo-doctores.jpg";
