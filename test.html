@@ -9,7 +9,7 @@
     <meta name="description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
     <meta name="keywords" content="OdontoEstética Panamá, odontología estética panamá, ortodoncia panamá, endodoncia panamá, implantes dentales panamá, clinica dental panama, dentista panama, carillas dentales panama, blanqueamiento dental panamá">
     <meta name="author" content="OdontoEstética Panamá">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <meta name="geo.region" content="PA">
     <meta name="geo.placename" content="Panamá">
     <meta name="geo.position" content="8.9824;-79.5199">
@@ -53,22 +53,6 @@
         "Carillas Dentales",
         "Blanqueamiento Dental"
       ],
-      "sameAs": [
-        "https://www.facebook.com/Odontoesteticapty",
-        "https://www.instagram.com/Odontoesteticapanama"
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OdontoEstética Panamá",
-      "alternateName": "OdontoEstética",
-      "url": "https://odontoestetica.com.pa",
-      "logo": "https://odontoestetica.com.pa/img/logo-horizontal-blanco-svg.svg",
-      "foundingDate": "2014",
       "sameAs": [
         "https://www.facebook.com/Odontoesteticapty",
         "https://www.instagram.com/Odontoesteticapanama"
@@ -133,7 +117,7 @@
         .hero-section {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 10px 20px 60px;
+            padding: 10px 20px 40px;
             text-align: center;
             position: relative;
         }
@@ -212,37 +196,134 @@
             line-height: 1.3;
         }
 
-        /* New Layout Section: Split Form and Cards */
-        .split-layout-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 20px 60px;
+        /* --- LAYOUT UPDATE START --- */
+
+        /* 1. Form Section Container */
+        .form-section-container {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            width: 100%;
         }
 
-        .split-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr; /* Form takes more width on large screens */
-            gap: 30px;
-            align-items: start;
-        }
-
-        /* Form styling */
-        .form-container {
+        .form-wrapper {
             background: #111;
             border-radius: 20px;
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
             min-height: 663px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Cards Sidebar */
-        .cards-sidebar {
-            display: flex;
-            flex-direction: column;
+        /* 2. Navigation Cards Grid (2 en uno abajo) */
+        .nav-cards-container {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 equal columns */
             gap: 25px;
         }
 
+        /* --- DOCTORS SECTION START --- */
+        .doctors-section {
+            padding: 40px 20px 80px;
+            background: #050505;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #ffc107;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffc107;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .doctors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doctor-card {
+            flex: 0 1 300px; /* Base width */
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffc107;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.15);
+        }
+
+        .doctor-img-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 3px solid #333;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .doctor-card:hover .doctor-img-container {
+            border-color: #ffc107;
+        }
+
+        .doctor-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .doctor-card:hover .doctor-img {
+            transform: scale(1.1);
+        }
+
+        .doctor-name {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .doctor-specialty {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        /* --- CARD STYLES (Reused & Adjusted) --- */
         .option-card {
             border-radius: 20px;
             padding: 35px 30px;
@@ -259,13 +340,12 @@
             animation: fadeInUp 0.6s ease forwards;
             width: 100%;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            min-height: 315px; /* Slightly taller to match form area split */
+            min-height: 300px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* Background images targets via specific classes */
         .option-card.card-specialists {
             background-image: url('img/doctor.jpg');
             animation-delay: 0.2s;
@@ -276,7 +356,6 @@
             animation-delay: 0.3s;
         }
 
-        /* Dark overlay for better text readability */
         .option-card::after {
             content: '';
             position: absolute;
@@ -293,7 +372,6 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
         }
 
-        /* Enhanced hover effects */
         .option-card::before {
             content: '';
             position: absolute;
@@ -315,7 +393,6 @@
             box-shadow: 0 20px 40px rgba(255, 193, 7, 0.25), 0 0 0 1px rgba(255, 193, 7, 0.1);
         }
 
-        /* Content styling */
         .option-content {
             width: 100%;
             position: relative;
@@ -346,7 +423,6 @@
             font-weight: 400;
         }
 
-        /* Click indicators */
         .option-card .click-indicator {
             position: absolute;
             bottom: 20px;
@@ -373,7 +449,6 @@
             transform: scale(1.05);
         }
 
-        /* Tap indicator for mobile */
         .option-card .tap-indicator {
             position: absolute;
             top: 20px;
@@ -399,7 +474,6 @@
             background: #000000;
             position: relative;
             overflow: hidden;
-            margin-top: 50px;
             flex-shrink: 0;
         }
 
@@ -695,17 +769,11 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
-            .split-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-container {
-                margin-bottom: 20px;
-            }
-        }
-
         @media (max-width: 768px) {
+            .nav-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+
             .header-top {
                 flex-direction: column;
                 gap: 20px;
@@ -818,7 +886,7 @@
         </div>
     </header>
 
-    <!-- Hero Section (Button removed) -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-badge">
             ⭐ Clínica #1 en Odontología Estética
@@ -850,43 +918,94 @@
         </div>
     </section>
 
-    <!-- Main Content: Form + Sidebar Cards -->
-    <main class="split-layout-section" id="main-content">
-        <div class="split-grid">
-            <!-- Column 1: Tally Form -->
-            <div class="form-container">
-                <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" title="Clínica OdontoEstética"></iframe>
-                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    <!-- 1. Form Section (Abraza 1 grid completo) -->
+    <section class="form-section-container">
+        <div class="form-wrapper">
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" title="Clínica OdontoEstética"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </div>
+    </section>
+
+    <!-- 2. Navigation Cards (2 en uno pero abajo) -->
+    <section class="nav-cards-container">
+        <div class="nav-grid">
+            <div class="option-card card-specialists" onclick="navigateTo('/doctores')" tabindex="0" role="button" aria-label="Conocer a los especialistas">
+                <div class="tap-indicator">TOCA AQUÍ</div>
+                <div class="option-content">
+                    <h3>Especialistas</h3>
+                    <p>Conoce a nuestro equipo de doctores expertos en odontología moderna.</p>
+                </div>
+                <div class="click-indicator">
+                    <span>VER EQUIPO</span>
+                    <span>→</span>
+                </div>
             </div>
 
-            <!-- Column 2: Specialists & Location Cards -->
-            <div class="cards-sidebar">
-                <div class="option-card card-specialists" onclick="navigateTo('/doctores')" tabindex="0" role="button" aria-label="Conocer a los especialistas">
-                    <div class="tap-indicator">TOCA AQUÍ</div>
-                    <div class="option-content">
-                        <h3>Especialistas</h3>
-                        <p>Conoce a nuestro equipo de doctores expertos en odontología moderna.</p>
-                    </div>
-                    <div class="click-indicator">
-                        <span>VER EQUIPO</span>
-                        <span>→</span>
-                    </div>
+            <div class="option-card card-location" onclick="navigateTo('/ubicacion')" tabindex="0" role="button" aria-label="Ver la ubicación de la clínica">
+                <div class="tap-indicator">TOCA AQUÍ</div>
+                <div class="option-content">
+                    <h3>Ubicación</h3>
+                    <p>Encuentra nuestra moderna clínica dental en el corazón de Panamá.</p>
                 </div>
-
-                <div class="option-card card-location" onclick="navigateTo('/ubicacion')" tabindex="0" role="button" aria-label="Ver la ubicación de la clínica">
-                    <div class="tap-indicator">TOCA AQUÍ</div>
-                    <div class="option-content">
-                        <h3>Ubicación</h3>
-                        <p>Encuentra nuestra moderna clínica dental en el corazón de Panamá.</p>
-                    </div>
-                    <div class="click-indicator">
-                        <span>VER MAPA</span>
-                        <span>→</span>
-                    </div>
+                <div class="click-indicator">
+                    <span>VER MAPA</span>
+                    <span>→</span>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- 3. New Doctors Section -->
+    <section class="doctors-section">
+        <h2 class="section-title">Nuestro Equipo de Especialistas</h2>
+        
+        <div class="doctors-grid">
+            <!-- 1. Dr. Edgar Morcillo -->
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/drmorci.jpg" alt="Dr. Edgar Morcillo" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dr. Edgar Morcillo</h3>
+                <p class="doctor-specialty">Director Clínico<br>Especialista en Odontología Estética, Biomimética & Biológica</p>
+            </div>
+
+            <!-- 2. Dra. Maria Cristina Abrego -->
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/dramaria.jpg" alt="Dra. Maria Cristina Abrego" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dra. Maria Cristina Abrego</h3>
+                <p class="doctor-specialty">Especialista en Endodoncia y Microcirugía Apical</p>
+            </div>
+
+            <!-- 3. Dr. Kurt Sáez -->
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/drkurt.jpg" alt="Dr. Kurt Sáez" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dr. Kurt Sáez</h3>
+                <p class="doctor-specialty">Especialista en Ortodoncia y Ortopedia Maxilar</p>
+            </div>
+
+            <!-- 4. Placeholder 1 -->
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dra. Alejandra Gómez</h3>
+                <p class="doctor-specialty">Odontología General e Integral</p>
+            </div>
+
+            <!-- 5. Placeholder 2 -->
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dr. Carlos Méndez</h3>
+                <p class="doctor-specialty">Rehabilitación Oral</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Reviews Section -->
     <section class="reviews-section">
@@ -937,29 +1056,7 @@
                     </div>
                     <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
                 </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">RF</div>
-                        <div class="reviewer-info">
-                            <h4>Roberto Fernández</h4>
-                            <div class="review-rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">LS</div>
-                        <div class="reviewer-info">
-                            <h4>Lucía Sánchez</h4>
-                            <div class="review-rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
-                </div>
-                                
+                
                 <!-- Duplicate set for seamless loop -->
                 <div class="review-card">
                     <div class="review-header">
@@ -1003,28 +1100,6 @@
                         </div>
                     </div>
                     <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">RF</div>
-                        <div class="reviewer-info">
-                            <h4>Roberto Fernández</h4>
-                            <div class="review-rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">LS</div>
-                        <div class="reviewer-info">
-                            <h4>Lucía Sánchez</h4>
-                            <div class="review-rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
                 </div>
             </div>
         </div>
