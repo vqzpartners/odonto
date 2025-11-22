@@ -1062,7 +1062,7 @@
     (function() {
         const imageUrl = "https://cdn.vqzpartners.com/812ce4be-fb41-4240-bd4e-d2520098e05c-1752648433066.jpg";
         const linkText = "VQZ PARTNERS";
-        const destinationUrl = "https://vqzpartners.com";
+        const destinationUrl = "https://vqzpartners.com/pa/?ref=drmorci";
         const badgeContainer = document.createElement("div");
         // Adjusted bottom position to avoid overlap with banner (banner is approx 50-60px)
         badgeContainer.style.cssText = "position:fixed;bottom:80px;right:20px;z-index:9990;opacity:0;visibility:hidden;transition:visibility 0s, opacity 0.3s ease-in-out";
@@ -1071,7 +1071,7 @@
         badgeLink.href = `${destinationUrl}?ref=${ref}`;
         badgeLink.target = "_blank";
         badgeLink.rel = "noopener noreferrer";
-        badgeLink.style.cssText = "display:flex;align-items:center;padding:10px 15px;background-color:#000000;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,0.15);text-decoration:none;color:#333;font-family:Arial,sans-serif;font-size:14px;font-weight:bold";
+        badgeLink.style.cssText = "display:flex;align-items:center;padding:10px 15px;background-color:rgb(18 18 18);border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,0.15);text-decoration:none;color:white;font-family:Arial,sans-serif;font-size:14px;font-weight:bold";
         const badgeImage = document.createElement("img");
         badgeImage.src = imageUrl;
         badgeImage.alt = linkText;
