@@ -36,52 +36,39 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
             
-<!-- Minimal, valid Schema.org markup that complements your Google Business Profile -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
-  "name": "OdontoEstética Panamá",
-  "description": "Centro médico especializado en Odontología Estética y tratamientos dentales avanzados en Panamá.",
-  "url": "https://odontoestetica.com.pa",
-  "logo": "https://odontoestetica.com.pa/img/logo-horizontal-blanco-svg.svg",
-  "medicalSpecialty": [
-    "Odontología Estética",
-    "Ortodoncia", 
-    "Endodoncia",
-    "Implantes dentales",
-    "Carillas Dentales",
-    "Blanqueamiento Dental"
-  ],
-  "sameAs": [
-    "https://www.facebook.com/Odontoesteticapty",
-    "https://www.instagram.com/Odontoesteticapanama"
-  ]
-}
-</script>
-
-<!-- Optional: Organization schema for brand recognition -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "OdontoEstética Panamá",
-  "alternateName": "OdontoEstética",
-  "url": "https://odontoestetica.com.pa",
-  "logo": "https://odontoestetica.com.pa/img/logo-horizontal-blanco-svg.svg",
-  "foundingDate": "2014",
-  "sameAs": [
-    "https://www.facebook.com/Odontoesteticapty",
-    "https://www.instagram.com/Odontoesteticapanama"
-  ]
-}
-</script>
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "OdontoEstética Panamá",
+      "description": "Centro médico especializado en Odontología Estética y tratamientos dentales avanzados en Panamá.",
+      "url": "https://odontoestetica.com.pa",
+      "logo": "https://odontoestetica.com.pa/img/logo-horizontal-blanco-svg.svg",
+      "medicalSpecialty": [
+        "Odontología Estética",
+        "Ortodoncia", 
+        "Endodoncia",
+        "Implantes dentales",
+        "Carillas Dentales",
+        "Blanqueamiento Dental"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/Odontoesteticapty",
+        "https://www.instagram.com/Odontoesteticapanama"
+      ]
+    }
+    </script>
         
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -92,6 +79,7 @@
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            padding-bottom: 60px; /* Space for sticky banner */
         }
 
         /* Header Section */
@@ -108,14 +96,13 @@
 
         .header-top {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
 
         .logo {
@@ -130,54 +117,11 @@
             object-fit: contain;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
-            color: black;
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            background: linear-gradient(135deg, #ffcd38 0%, #ffd54f 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-        }
-
-        /* Hero Section - Enhanced */
+        /* Hero Section */
         .hero-section {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 10px 20px 80px;
+            padding: 10px 20px 40px;
             text-align: center;
             position: relative;
         }
@@ -229,7 +173,7 @@
         .hero-stats {
             display: flex;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             justify-content: center;
             flex-wrap: wrap;
             padding: 0 10px;
@@ -256,226 +200,126 @@
             line-height: 1.3;
         }
 
-        /* Options Grid - Updated with background images */
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Form Section Container */
+        .form-section-container {
+            max-width: 1000px;
+            margin: 0 auto 50px;
             padding: 0 20px;
+            width: 100%;
         }
 
-        .options-row-1 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .options-row-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .option-card {
+        .form-wrapper {
+            background: #111;
             border-radius: 20px;
-            padding: 35px 30px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            padding: 10px;
+            border: 1px solid #333;
             overflow: hidden;
+            min-height: 663px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Doctors Section */
+        .doctors-section {
+            padding: 40px 20px 80px;
+            background: #050505;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #ffc107;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffc107;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .doctors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doctor-card {
+            flex: 0 1 300px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-            width: 100%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            min-height: 280px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            align-items: center;
+            text-align: center;
         }
 
-        /* Background images for each card */
-        .option-card:nth-child(1) {
-            background-image: url('img/sonrisa.jpg');
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffc107;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.15);
         }
 
-        .option-card:nth-child(1):nth-child(1) {
-            background-image: url('img/sonrisa.jpg');
+        .doctor-img-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 3px solid #333;
+            position: relative;
+            transition: border-color 0.3s ease;
         }
 
-        .options-row-2 .option-card:nth-child(1) {
-            background-image: url('img/doctor.jpg');
+        .doctor-card:hover .doctor-img-container {
+            border-color: #ffc107;
         }
 
-        .options-row-2 .option-card:nth-child(2) {
-            background-image: url('img/panama.jpg');
-        }
-
-        /* Dark overlay for better text readability */
-        .option-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
-            z-index: 1;
-            transition: all 0.4s ease;
-        }
-
-        .option-card:hover::after {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
-        }
-
-        .option-card:nth-child(1) { animation-delay: 0.1s; }
-        .option-card:nth-child(2) { animation-delay: 0.2s; }
-        .option-card:nth-child(3) { animation-delay: 0.3s; }
-        .option-card:nth-child(4) { animation-delay: 0.4s; }
-
-        /* Enhanced hover effects */
-        .option-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .doctor-img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.15), transparent);
-            transition: left 0.6s ease;
-            z-index: 2;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .option-card:hover::before {
-            left: 100%;
+        .doctor-card:hover .doctor-img {
+            transform: scale(1.1);
         }
 
-        .option-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.25), 0 0 0 1px rgba(255, 193, 7, 0.1);
-        }
-
-        /* Remove the old icon styling */
-        .option-icon {
-            display: none;
-        }
-
-        /* Update content styling to work with background images */
-        .option-content {
-            width: 100%;
-            position: relative;
-            z-index: 3;
-            margin-top: auto;
-            padding-bottom: 70px;
-        }
-
-        .option-card.featured .option-content {
-            max-width: 550px;
-        }
-
-        .option-content h3 {
-            font-size: 1.8rem;
-            color: #ffc107;
-            margin-bottom: 15px;
+        .doctor-name {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 10px;
             font-weight: 700;
-            transition: color 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .option-card.featured .option-content h3 {
-            font-size: 2.2rem;
-        }
-
-        .option-card:hover .option-content h3 {
-            color: #ffcd38;
-        }
-
-        .option-content p {
-            color: #ffffff;
-            line-height: 1.6;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        .doctor-specialty {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.4;
             font-weight: 400;
         }
 
-        .option-card.featured .option-content p {
-            font-size: 1.1rem;
-        }
-
-        .option-card:hover .option-content p {
-            color: #ffffff;
-        }
-
-        /* Update click indicators */
-        .option-card .click-indicator {
-            position: absolute;
-            bottom: 20px;
-            right: 25px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #ffc107;
-            background: rgba(255, 193, 7, 0.15);
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 193, 7, 0.4);
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 3;
-            backdrop-filter: blur(10px);
-        }
-
-        .option-card:hover .click-indicator {
-            background: rgba(255, 193, 7, 0.25);
-            border-color: rgba(255, 193, 7, 0.6);
-            transform: scale(1.05);
-        }
-
-        /* Tap indicator for mobile */
-        .option-card .tap-indicator {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #ffc107;
-            background: rgba(255, 193, 7, 0.1);
-            padding: 4px 10px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            animation: pulseGlow 2s infinite;
-            z-index: 3;
-            backdrop-filter: blur(10px);
-        }
-
-        .whatsapp-icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        /* Reviews Carousel Section */
+        /* Reviews Carousel Section - FIXED LOOP */
         .reviews-section {
             padding: 4rem 0;
             background: #000000;
             position: relative;
             overflow: hidden;
-            margin-top: 50px;
             flex-shrink: 0;
+            margin-bottom: 50px;
         }
 
         .reviews-section h2 {
@@ -507,14 +351,15 @@
 
         .reviews-carousel {
             position: relative;
+            width: 100%;
         }
 
         .reviews-track {
             display: flex;
             gap: 2rem;
-            animation: infiniteScroll 60s linear infinite;
+            animation: infiniteScroll 40s linear infinite;
             width: max-content;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .reviews-track:hover {
@@ -527,19 +372,19 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 150px;
+            width: 100px;
             z-index: 10;
             pointer-events: none;
         }
 
         .reviews-carousel::before {
             left: 0;
-            background: linear-gradient(to right, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            background: linear-gradient(to right, #000000 0%, transparent 100%);
         }
 
         .reviews-carousel::after {
             right: 0;
-            background: linear-gradient(to left, #000000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            background: linear-gradient(to left, #000000 0%, transparent 100%);
         }
 
         .review-card {
@@ -599,111 +444,194 @@
             flex-grow: 1;
         }
 
-        /* Enhanced Footer */
-        .footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            padding: 60px 0 30px;
-            text-align: left;
-            margin-top: auto;
-            position: relative;
-            flex-shrink: 0;
+        /* --- STICKY STATUS BANNER --- */
+        .sticky-schedule-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid #333;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998; /* Below doctores badge if needed, or adjust */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .status-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot-open {
+            background-color: #2ecc71;
+            box-shadow: 0 0 10px #2ecc71;
+            animation: pulseGreen 2s infinite;
+        }
+
+        .dot-closed {
+            background-color: #e74c3c;
+            box-shadow: 0 0 5px #e74c3c;
+        }
+
+        .status-text {
+            color: #fff;
+        }
+
+        .status-highlight {
+            color: #ffc107;
+        }
+
+        /* --- ACTION CARDS SECTION --- */
+        .action-cards-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .action-card {
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-dark {
+            background-color: #1a1a1a;
+            color: white;
+            border: 1px solid #333;
+        }
+        
+        .card-dark:hover {
+            border-color: #555;
+            background-color: #222;
+        }
+
+        .card-yellow {
+            background-color: #ffc107;
+            color: #000;
+            border: 1px solid #ffc107;
+        }
+
+        .card-yellow:hover {
+            background-color: #ffcd38;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .card-dark .card-icon { color: #a8c7fa; }
+        .card-yellow .card-icon { color: #0056b3; }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #111 0%, #000 100%);
+            padding: 70px 0 80px; /* Added bottom padding for sticky banner */
+            text-align: center;
+            margin-top: auto;
+            border-top: 1px solid #222;
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h4 {
-            color: #ffc107;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
         .footer-logo-img {
-            height: 40px;
+            height: 90px;
             width: auto;
             margin-bottom: 15px;
         }
 
         .footer-description {
-            color: #ccc;
-            font-size: 0.95rem;
+            color: #999;
+            font-size: 1rem;
             line-height: 1.6;
-            max-width: 400px;
+            max-width: 350px;
+            margin: 0 auto;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
+            justify-content: center;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #333 0%, #444 100%);
-            border: 2px solid #555;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 50%;
             color: #ffc107;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
+            background: #ffc107;
             color: black;
-            border-color: #ffc107;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .review-button-footer {
-            background: linear-gradient(135deg, #333 0%, #444 100%);
-            color: #ffc107;
-            border: 2px solid #ffc107;
-            padding: 12px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .review-button-footer:hover {
-            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
-            color: black;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 193, 7, 0.3);
+            transform: translateY(-5px);
         }
 
         .footer-copyright {
-            color: #666;
+            color: #555;
             font-size: 0.85rem;
+            margin-top: 20px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            width: 100%;
         }
 
         /* Loading Animation */
@@ -742,185 +670,23 @@
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes infiniteScroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50%)); }
+            100% { transform: translateX(-50%); }
         }
 
-        @keyframes pulseGlow {
-            0%, 100% {
-                 opacity: 0.6;
-                transform: translateY(-10px) scale(1);
-            }
-            50% {
-                 opacity: 1;
-                transform: translateY(-10px) scale(1.05);
-            }
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .logo {
-                height: 45px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero-stats {
-                gap: 25px;
-                margin-bottom: 40px;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding: 0 20px;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .stat-item {
-                min-width: 100px;
-                flex-shrink: 0;
-            }
-
-            .stat-number {
-                font-size: 1.8rem;
-            }
-
-            .stat-label {
-                font-size: 0.6rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .options-row-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .option-card {
-                padding: 30px 25px;
-                min-height: 250px;
-            }
-
-            /* Mobile-specific enhancements for clickability */
-            .option-card .tap-indicator {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .option-card .click-indicator {
-                position: static;
-                margin-top: 20px;
-                align-self: center;
-                background: rgba(255, 193, 7, 0.2);
-                border-color: rgba(255, 193, 7, 0.5);
-            }
-
-            .option-content {
-                padding-bottom: 20px;
-            }
-
-            /* Add touch feedback */
-            .option-card:active {
-                transform: scale(0.98);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-                        
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-                        
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Accessibility */
-        .option-card:focus {
-            outline: 3px solid #ffc107;
-            outline-offset: 3px;
-        }
-
-        /* Pulse animation for better attention */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Enhanced mobile touch targets */
-        @media (max-width: 768px) {
-            .option-card {
-                touch-action: manipulation;
-            }
-        }
-
-        .hero-button.whatsapp-button {
-            background: linear-gradient(135deg, #ffc107 0%, #ffcd38 100%);
-            color: black;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            padding: 18px 35px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-button.whatsapp-button:hover {
-            background: linear-gradient(135deg, #ffcd38 0%, #ffd54f 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4);
-        }
-
-        .hero-button.whatsapp-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .hero-button.whatsapp-button:hover::before {
-            left: 100%;
+            .header-top { flex-direction: column; }
+            .logo { height: 45px; }
+            .hero-title { font-size: 2.5rem; }
+            .action-cards-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -945,7 +711,7 @@
         </div>
     </header>
 
-    <!-- Enhanced Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-badge">
             ⭐ Clínica #1 en Odontología Estética
@@ -975,62 +741,65 @@
                 <span class="stat-label">Calificación Promedio</span>
             </div>
         </div>
-
-        <a href="/servicios" class="hero-button whatsapp-button" onclick="navigateTo('/servicios?ref=odontoestetica.com.pa')">
-            <i class="fab fa-whatsapp"></i>
-                Agendar Consulta
-        </a>
     </section>
 
-    <!-- Options -->
-    <main class="options-grid" id="servicios">
-        <div class="options-row-1">
-            <div class="option-card featured" onclick="navigateTo('/servicios')" tabindex="0" role="button" aria-label="Ver nuestros servicios odontológicos">
-                <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-content">
-                    <h3>Nuestros Servicios</h3>
-                    <p>Descubre nuestros tratamientos de Odontología Estética, Ortodoncia, Endodoncia, Implantes dentales, carillas y más, diseñados para darte una sonrisa saludable y radiante.</p>
+    <!-- Form Section -->
+    <section class="form-section-container" id="agendar">
+        <div class="form-wrapper">
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <h2 class="section-title">Nuestro Equipo de Especialistas</h2>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/drmorci.jpg" alt="Dr. Edgar Morcillo" class="doctor-img">
                 </div>
-                <div class="click-indicator">
-                    <span>EXPLORAR</span>
-                    <span>→</span>
+                <h3 class="doctor-name">Dr. Edgar Morcillo</h3>
+                <p class="doctor-specialty">Director Clínico<br>Especialista en Odontología Estética, Biomimética & Biológica</p>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/dramaria.jpg" alt="Dra. Maria Cristina Abrego" class="doctor-img">
                 </div>
+                <h3 class="doctor-name">Dra. Maria Cristina Abrego</h3>
+                <p class="doctor-specialty">Especialista en Endodoncia y Microcirugía Apical</p>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/drkurt.jpg" alt="Dr. Kurt Sáez" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dr. Kurt Sáez</h3>
+                <p class="doctor-specialty">Especialista en Ortodoncia y Ortopedia Maxilar</p>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dra. Alejandra Gómez</h3>
+                <p class="doctor-specialty">Odontología General e Integral</p>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img-container">
+                    <img src="https://cdn.odontoestetica.com.pa/user.jpg" alt="Especialista OdontoEstética" class="doctor-img">
+                </div>
+                <h3 class="doctor-name">Dr. Carlos Méndez</h3>
+                <p class="doctor-specialty">Rehabilitación Oral</p>
             </div>
         </div>
-
-        <div class="options-row-2">
-            <div class="option-card" onclick="navigateTo('/doctores')" tabindex="0" role="button" aria-label="Conocer a los especialistas">
-                <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-content">
-                    <h3>Especialistas</h3>
-                    <p>Conoce a nuestro equipo de doctores expertos en odontología moderna.</p>
-                </div>
-                <div class="click-indicator">
-                    <span>VER EQUIPO</span>
-                    <span>→</span>
-                </div>
-            </div>
-
-            <div class="option-card" onclick="navigateTo('/ubicacion')" tabindex="0" role="button" aria-label="Ver la ubicación de la clínica">
-                <div class="tap-indicator">TOCA AQUÍ</div>
-                <div class="option-content">
-                    <h3>Ubicación</h3>
-                    <p>Encuentra nuestra moderna clínica dental en el corazón de Panamá.</p>
-                </div>
-                <div class="click-indicator">
-                    <span>VER MAPA</span>
-                    <span>→</span>
-                </div>
-            </div>
-        </div>
-    </main>
+    </section>
 
     <!-- Reviews Section -->
     <section class="reviews-section">
         <h2>Testimonios de Nuestros Pacientes</h2>
         <div class="reviews-carousel">
+            <!-- IMPORTANT: Content is duplicated for seamless loop -->
             <div class="reviews-track">
-                <!-- Single set of reviews -->
+                <!-- SET 1 -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">AC</div>
@@ -1039,9 +808,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia. Los resultados superaron mis expectativas."</p>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">PJ</div>
@@ -1052,7 +820,6 @@
                     </div>
                     <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">NS</div>
@@ -1061,9 +828,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional. Altamente recomendado."</p>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">MP</div>
@@ -1074,7 +840,6 @@
                     </div>
                     <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">RF</div>
@@ -1083,9 +848,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">LS</div>
@@ -1094,10 +858,10 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales."</p>
                 </div>
-                                
-                <!-- Duplicate set for seamless loop -->
+
+                <!-- SET 2 (Duplicate) -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">AC</div>
@@ -1106,9 +870,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia. Los resultados superaron mis expectativas."</p>
+                    <p class="review-text">"Dr. Morci es increíble, te hace sentir cómodo y explica cada paso del tratamiento a realizar. Su paciencia y dedicación hacen la diferencia."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">PJ</div>
@@ -1119,7 +882,6 @@
                     </div>
                     <p class="review-text">"¡Fantástica experiencia! Me siento muy tranquila sabiendo que mi salud bucal está en tan excelentes manos. El Dr. Morci es un verdadero profesional."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">NS</div>
@@ -1128,9 +890,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional. Altamente recomendado."</p>
+                    <p class="review-text">"Excelente servicio y atención profesional de primer nivel. Las instalaciones son modernas y el trato personalizado es excepcional."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">MP</div>
@@ -1141,7 +902,6 @@
                     </div>
                     <p class="review-text">"¡Mi sonrisa nunca se vio mejor! El Dr. Morci transformó completamente mi apariencia. Recomiendo al doc 100% - su trabajo es arte 🥹"</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">RF</div>
@@ -1150,9 +910,8 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia y el seguimiento post-tratamiento es impecable."</p>
+                    <p class="review-text">"Profesionalismo excepcional y resultados que superan las expectativas. La tecnología que utiliza es de vanguardia."</p>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-avatar">LS</div>
@@ -1161,218 +920,178 @@
                             <div class="review-rating">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales y hermosos."</p>
+                    <p class="review-text">"Excelente experiencia desde la primera consulta. El Dr. Morci explicó todo el proceso detalladamente y los resultados son naturales."</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Action Cards Section -->
+    <section class="action-cards-section">
+        <a href="https://www.google.com/maps/dir//Clinica+Dental+Odontoestetica+by+Dr.+Morci,+Calle+54+Este,+Obarrio+Torre+Generali,+Piso+20,+Local+20A,+Panam%C3%A1,+Provincia+de+Panam%C3%A1/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8faca9a0a045a2a9:0x3b4029f9c8f2bbf0?sa=X&ved=1t:57443&ictx=111" target="_blank" class="action-card card-dark">
+            <i class="fas fa-map-marked-alt card-icon"></i>
+            <h3 class="card-title">Obtener Direcciones</h3>
+            <p class="card-text">Navega hasta nuestra clínica con Google Maps</p>
+        </a>
+
+        <a href="#agendar" class="action-card card-yellow">
+            <i class="fas fa-calendar-check card-icon"></i>
+            <h3 class="card-title">Agendar Consulta</h3>
+            <p class="card-text">Reserva tu cita con nuestros especialistas</p>
+        </a>
+    </section>
+
+    <!-- Updated Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="img/logo-horizontal-blanco-svg.svg" alt="OdontoEstética Panamá" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">Transformando sonrisas con excelencia y tecnología de vanguardia desde 2014.</p>
-                </div>
-                                
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="social-links">
-                        <a href="https://instagram.com/odontoesteticapanama" target="_blank" aria-label="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://facebook.com/odontoesteticapty" target="_blank" aria-label="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+            <!-- Logo Larger -->
+            <div class="footer-brand">
+                <img src="img/logo-white-firma.svg" alt="OdontoEstética Panamá" class="footer-logo-img">
             </div>
-                        
-            <div class="footer-bottom">
-                <div class="footer-reviews">
-                    <a href="https://search.google.com/local/writereview?placeid=ChIJqaJFoKCprI8R8LvyyPkpQDs" target="_blank" class="review-button-footer">
-                        ⭐ Déjanos tu reseña en Google
-                    </a>
-                </div>
-                <p class="footer-copyright">© <span id="currentYear"></span> OdontoEstética, S.A.
-                    <br>Todos los derechos reservados</br></p>
+            
+            <!-- Description broken in two lines via max-width -->
+            <p class="footer-description">Transformando sonrisas con excelencia y tecnología de vanguardia desde 2014.</p>
+            
+            <!-- Social Icons (Updated Link) -->
+            <div class="social-links">
+                <a href="https://instagram.com/drmorci" target="_blank" aria-label="Instagram Dr. Morci">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com/odontoesteticapty" target="_blank" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
             </div>
+
+            <!-- Copyright -->
+            <p class="footer-copyright">© <span id="currentYear"></span> OdontoEstética, S.A. | Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <!-- STICKY SCHEDULE BANNER -->
+    <div id="schedule-banner" class="sticky-schedule-banner">
+        <div class="status-content">
+            <div id="status-dot" class="status-dot"></div>
+            <span id="status-text" class="status-text">Cargando horario...</span>
+        </div>
+    </div>
 
     <script>
         // Update year automatically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Navigation function
+        // Loading and navigation
         function navigateTo(page) {
             const loading = document.getElementById('loading');
             loading.style.display = 'flex';
-                        
-            setTimeout(() => {
-                window.location.href = page;
-            }, 800);
+            setTimeout(() => { window.location.href = page; }, 800);
         }
 
-        // Smooth scrolling for hero CTA
-        document.querySelector('a[href="#servicios"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('servicios').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+        // Logic for Sticky Banner based on Panama Time
+        (function updateScheduleBanner() {
+            const dot = document.getElementById('status-dot');
+            const text = document.getElementById('status-text');
+            
+            // Get current time in Panama
+            const now = new Date();
+            const panamaTimeStr = now.toLocaleString("en-US", {timeZone: "America/Panama"});
+            const panamaDate = new Date(panamaTimeStr);
+            
+            const day = panamaDate.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+            const hour = panamaDate.getHours();
+            
+            let isOpen = false;
+            let nextOpenText = "";
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            const cards = document.querySelectorAll('.option-card');
-            let currentIndex = Array.from(cards).indexOf(document.activeElement);
-                        
-            switch(e.key) {
-                case 'ArrowRight':
-                case 'ArrowDown':
-                    e.preventDefault();
-                    currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
-                    cards[currentIndex].focus();
-                    break;
-                case 'ArrowLeft':
-                case 'ArrowUp':
-                    e.preventDefault();
-                    currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
-                    cards[currentIndex].focus();
-                    break;
-                case 'Enter':
-                case ' ':
-                    if (document.activeElement.classList.contains('option-card')) {
-                        e.preventDefault();
-                        document.activeElement.click();
-                    }
-                    break;
+            // Schedules
+            // L-V: 9-18
+            // S: 9-13
+            // D: Closed
+
+            // Check if open now
+            if (day >= 1 && day <= 5) { // Mon-Fri
+                if (hour >= 9 && hour < 18) isOpen = true;
+            } else if (day === 6) { // Sat
+                if (hour >= 9 && hour < 13) isOpen = true;
             }
-        });
 
-        // Make cards focusable
-        document.querySelectorAll('.option-card').forEach(card => {
-            card.setAttribute('tabindex', '0');
-        });
+            if (isOpen) {
+                dot.className = "status-dot dot-open";
+                text.innerHTML = "Abierto ahora &bull; Cierra hoy a las " + (day === 6 ? "1:00 PM" : "6:00 PM");
+            } else {
+                // Calculate next opening
+                dot.className = "status-dot dot-closed";
+                
+                // Logic to find next open slot
+                let nextDayName = "";
+                let nextTime = "9:00 AM";
 
-        // Add entrance animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0s';
-                    entry.target.style.animationPlayState = 'running';
+                if (day >= 1 && day <= 4) { // Mon-Thu
+                    if (hour < 9) {
+                        nextDayName = "hoy"; // Early morning
+                    } else {
+                        nextDayName = "mañana"; // After closing
+                    }
+                } else if (day === 5) { // Friday
+                    if (hour < 9) {
+                        nextDayName = "hoy";
+                    } else {
+                        nextDayName = "el Sábado"; // After closing
+                    }
+                } else if (day === 6) { // Saturday
+                    if (hour < 9) {
+                        nextDayName = "hoy";
+                    } else {
+                        nextDayName = "el Lunes"; // After closing
+                    }
+                } else { // Sunday
+                    nextDayName = "el Lunes";
                 }
-            });
-        }, observerOptions);
 
-        // Observe option cards
-        document.querySelectorAll('.option-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Enhanced mobile touch feedback
-        if ('ontouchstart' in window) {
-            document.querySelectorAll('.option-card').forEach(card => {
-                card.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                });
-                                
-                card.addEventListener('touchend', function() {
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            });
-        }
+                text.innerHTML = `Cerrado ahora <span style="opacity:0.6; margin: 0 6px;">|</span> Abre <span class="status-highlight">${nextDayName} a las 9:00 AM</span>`;
+            }
+        })();
     </script>
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    
+    <!-- Doctor's Club Badge Script -->
     <script>
-  (function() {
-    // --- Configuración ---
-    const imageUrl = "https://cdn.doctores.club/logo-doctores.jpg";
-    const linkText = "El club de doctores";
-    const destinationUrl = "https://doctores.club/";
-
-    // --- Creación del Badge ---
-    // 1. Crear el contenedor principal
-    const badgeContainer = document.createElement("div");
-    badgeContainer.style.position = "fixed";
-    badgeContainer.style.bottom = "20px";
-    badgeContainer.style.right = "20px";
-    badgeContainer.style.zIndex = "9999";
-    badgeContainer.style.opacity = "0";
-    badgeContainer.style.visibility = "hidden";
-    badgeContainer.style.transition = "visibility 0s, opacity 0.3s ease-in-out";
-
-    // 2. Crear el enlace
-    const badgeLink = document.createElement("a");
-    const ref = window.location.hostname;
-    badgeLink.href = `${destinationUrl}?ref=${ref}`;
-    badgeLink.target = "_blank";
-    badgeLink.rel = "noopener noreferrer";
-    badgeLink.style.display = "flex";
-    badgeLink.style.alignItems = "center";
-    badgeLink.style.padding = "10px 15px";
-    badgeLink.style.backgroundColor = "#ffffff";
-    badgeLink.style.borderRadius = "30px";
-    badgeLink.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
-    badgeLink.style.textDecoration = "none";
-    badgeLink.style.color = "#333";
-    badgeLink.style.fontFamily = "Arial, sans-serif";
-    badgeLink.style.fontSize = "14px";
-    badgeLink.style.fontWeight = "bold";
-
-    // 3. Crear la imagen
-    const badgeImage = document.createElement("img");
-    badgeImage.src = imageUrl;
-    badgeImage.alt = linkText;
-    badgeImage.style.width = "30px";
-    badgeImage.style.height = "30px";
-    badgeImage.style.borderRadius = "50%";
-    badgeImage.style.marginRight = "10px";
-    badgeImage.style.border = "1px solid #eee";
-
-    // 4. Crear el texto
-    const badgeText = document.createElement("span");
-    badgeText.textContent = linkText;
-
-    // 5. Ensamblar el badge
-    badgeLink.appendChild(badgeImage);
-    badgeLink.appendChild(badgeText);
-    badgeContainer.appendChild(badgeLink);
-    document.body.appendChild(badgeContainer);
-
-    // --- Lógica de visibilidad ---
-    const showBadgeOnScroll = () => {
-      const scrollPosition = window.pageYOffset;
-      const windowSize = window.innerHeight;
-      const bodyHeight = document.body.offsetHeight;
-
-      // Muestra el badge 50px antes de llegar al final
-      if (scrollPosition + windowSize >= bodyHeight - 50) {
-        badgeContainer.style.opacity = "1";
-        badgeContainer.style.visibility = "visible";
-      } else {
-        badgeContainer.style.opacity = "0";
-        badgeContainer.style.visibility = "hidden";
-      }
-    };
-
-    // Añadir el listener para el evento de scroll
-    window.addEventListener("scroll", showBadgeOnScroll);
-  })();
-</script>
-
+    (function() {
+        const imageUrl = "https://cdn.doctores.club/logo-doctores.jpg";
+        const linkText = "El club de doctores";
+        const destinationUrl = "https://doctores.club/";
+        const badgeContainer = document.createElement("div");
+        // Adjusted bottom position to avoid overlap with banner (banner is approx 50-60px)
+        badgeContainer.style.cssText = "position:fixed;bottom:80px;right:20px;z-index:9990;opacity:0;visibility:hidden;transition:visibility 0s, opacity 0.3s ease-in-out";
+        const badgeLink = document.createElement("a");
+        const ref = window.location.hostname;
+        badgeLink.href = `${destinationUrl}?ref=${ref}`;
+        badgeLink.target = "_blank";
+        badgeLink.rel = "noopener noreferrer";
+        badgeLink.style.cssText = "display:flex;align-items:center;padding:10px 15px;background-color:#ffffff;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,0.15);text-decoration:none;color:#333;font-family:Arial,sans-serif;font-size:14px;font-weight:bold";
+        const badgeImage = document.createElement("img");
+        badgeImage.src = imageUrl;
+        badgeImage.alt = linkText;
+        badgeImage.style.cssText = "width:30px;height:30px;border-radius:50%;margin-right:10px;border:1px solid #eee";
+        const badgeText = document.createElement("span");
+        badgeText.textContent = linkText;
+        badgeLink.appendChild(badgeImage);
+        badgeLink.appendChild(badgeText);
+        badgeContainer.appendChild(badgeLink);
+        document.body.appendChild(badgeContainer);
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight - 50) {
+                badgeContainer.style.opacity = "1";
+                badgeContainer.style.visibility = "visible";
+            } else {
+                badgeContainer.style.opacity = "0";
+                badgeContainer.style.visibility = "hidden";
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
