@@ -126,16 +126,17 @@
             position: relative;
         }
 
+        /* MODIFICADO: Badge con texto más pequeño y padding ajustado */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px; /* Gap reducido */
             background: rgba(255, 193, 7, 0.15); 
             border: 1px solid #ffc107; 
             box-shadow: 0 0 15px rgba(255, 193, 7, 0.15);
-            padding: 10px 20px;
+            padding: 8px 16px; /* Padding reducido */
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.75rem; /* Texto más pequeño */
             color: #ffc107;
             margin-bottom: 25px;
             font-weight: 600;
@@ -143,16 +144,14 @@
             text-transform: uppercase;
         }
 
+        /* MODIFICADO: Título sin gradiente, color sólido amarillo */
         .hero-title {
             font-size: 3.5rem;
-            color: white;
+            color: #ffc107; /* Amarillo sólido */
             margin-bottom: 20px;
             font-weight: 800;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #ffc107 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            /* Se eliminaron las propiedades de background-clip/gradient */
         }
 
         .hero-subtitle {
@@ -217,7 +216,6 @@
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
-            /* Se ha aumentado la altura mínima para evitar cortes en móvil */
             min-height: 680px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -690,26 +688,27 @@
             .header-top { flex-direction: column; }
             .logo { height: 45px; }
             
-            /* Ajuste para que el título se vea en 2 líneas estéticas en móvil */
+            /* MODIFICADO: Ajuste de fuente para que "Sonrisa" suba de línea */
             .hero-title { 
-                font-size: 2.2rem; 
-                line-height: 1.2;
+                font-size: 1.9rem; /* Un poco más pequeño para acomodar el texto */
+                line-height: 1.15;
+                padding: 0 5px; /* Padding lateral mínimo para aprovechar el ancho */
             }
             
             .action-cards-section { grid-template-columns: 1fr; }
 
             /* Ajuste para que las estadisticas se vean en UNA sola linea en móvil */
             .hero-stats {
-                gap: 15px; /* Menor espacio entre elementos */
-                flex-wrap: nowrap; /* Fuerza a no romperse en líneas */
+                gap: 15px; 
+                flex-wrap: nowrap; 
                 justify-content: center;
                 margin-top: 30px;
             }
             .stat-number {
-                font-size: 1.3rem; /* Numero un poco mas pequeño */
+                font-size: 1.3rem;
             }
             .stat-label {
-                font-size: 0.7rem; /* Texto descriptivo mas pequeño */
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -737,14 +736,13 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <!-- MODIFICADO: Pill (Badge) con texto corto y directo -->
+        <!-- MODIFICADO: Texto de pill "Odontología Biomimética y Biológica" -->
         <div class="hero-badge">
             🌿 Odontología Biomimética y Biológica
         </div>
         
         <h1 class="hero-title">Transformamos Tu Sonrisa <br>Respetando Tu Salud</h1>
         
-        <!-- MODIFICADO: Uso de espacios &nbsp; para evitar saltos de línea feos en PC -->
         <p class="hero-subtitle">
             Expertos en <strong>Implantes Dentales, Ortodoncia y Endodoncia</strong> con un enfoque biológico de mínima&nbsp;invasión.
         </p>
@@ -773,7 +771,6 @@
     <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <!-- MODIFICADO: scrolling="yes" para evitar corte en móviles -->
             <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="680" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
