@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OdontoEstética Panamá - Odontología Estética en Panamá</title>
+    <title>OdontoEstética Panamá - Implantes, Ortodoncia y Odontología Biomimética</title>
         
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
-    <meta name="keywords" content="OdontoEstética Panamá, odontología estética panamá, ortodoncia panamá, endodoncia panamá, implantes dentales panamá, clinica dental panama, dentista panama, carillas dentales panama, blanqueamiento dental panamá">
+    <meta name="description" content="Clínica especialista en Odontología Biomimética y Biológica en Panamá. Expertos en Implantes Dentales, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
+    <meta name="keywords" content="odontología biomimética panamá, odontología biológica panamá, implantes dentales panamá, ortodoncia panamá, endodoncia panamá, diseño de sonrisa, dentista holístico panamá">
     <meta name="author" content="OdontoEstética Panamá">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="PA">
@@ -18,8 +18,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://odontoestetica.com.pa/">
-    <meta property="og:title" content="OdontoEstética Panamá - Expertos en Odontología Estética y Especialidades">
-    <meta property="og:description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
+    <meta property="og:title" content="OdontoEstética Panamá - Especialistas en Implantes, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
+    <meta property="og:description" content="Clínica líder en Odontología Estética y Biológica en Panamá">
     <meta property="og:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="OdontoEstética Panamá">
@@ -27,8 +27,8 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://odontoestetica.com.pa/">
-    <meta property="twitter:title" content="OdontoEstética Panamá - Odontología Estética, Ortodoncia, Implantes">
-    <meta property="twitter:description" content="Clínica líder en Odontología Estética en Panamá. Ofrecemos tratamientos avanzados como Ortodoncia, Implantes dentales, Endodoncia y diseño de sonrisa.">
+    <meta property="twitter:title" content="OdontoEstética Panamá - Especialistas en Implantes, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
+    <meta property="twitter:description" content="Clínica líder en Odontología Estética y Biológica en Panamá">
     <meta property="twitter:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
         
     <!-- Favicon -->
@@ -42,16 +42,16 @@
       "@context": "https://schema.org",
       "@type": "MedicalOrganization",
       "name": "OdontoEstética Panamá",
-      "description": "Centro médico especializado en Odontología Estética y tratamientos dentales avanzados en Panamá.",
+      "description": "Clínica de Odontología Biomimética y Biológica especializada en Implantes, Ortodoncia y Endodoncia.",
       "url": "https://odontoestetica.com.pa",
       "logo": "https://odontoestetica.com.pa/img/logo-horizontal-blanco-svg.svg",
       "medicalSpecialty": [
-        "Odontología Estética",
+        "Odontología Biomimética",
+        "Odontología Biológica",
         "Ortodoncia", 
         "Endodoncia",
         "Implantes dentales",
-        "Carillas Dentales",
-        "Blanqueamiento Dental"
+        "Rehabilitación Oral"
       ],
       "sameAs": [
         "https://www.facebook.com/Odontoesteticapty",
@@ -126,30 +126,60 @@
             position: relative;
         }
 
+        /* MODIFICADO: Badge con efecto de brillo MÁS LENTO (8s) */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 193, 7, 0.1);
-            border: 1px solid rgba(255, 193, 7, 0.3);
+            gap: 6px;
+            background: rgba(255, 193, 7, 0.15); 
+            border: 1px solid #ffc107; 
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.15);
             padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
             color: #ffc107;
             margin-bottom: 25px;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            
+            /* Propiedades necesarias para la animación */
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* Elemento pseudo para el brillo */
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent
+            );
+            transform: skewX(-20deg);
+            /* CAMBIO: Animación ajustada a 8 segundos para ser más lenta */
+            animation: shine 8s infinite; 
+        }
+
+        /* Keyframes del brillo */
+        @keyframes shine {
+            0% { left: -150%; }
+            20% { left: 150%; } /* El brillo pasa, luego espera */
+            100% { left: 150%; } 
         }
 
         .hero-title {
             font-size: 3.5rem;
-            color: white;
+            color: #ffc107; /* Amarillo sólido */
             margin-bottom: 20px;
             font-weight: 800;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #ffc107 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero-subtitle {
@@ -214,7 +244,8 @@
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
-            min-height: 663px;
+            /* Se eliminó height fija, se deja que el iframe expanda el contenedor */
+            min-height: 400px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
@@ -312,7 +343,7 @@
             font-weight: 400;
         }
 
-        /* Reviews Carousel Section - FIXED LOOP */
+        /* Reviews Carousel Section */
         .reviews-section {
             padding: 4rem 0;
             background: #000000;
@@ -458,7 +489,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9998; /* Below doctores badge if needed, or adjust */
+            z-index: 9998;
             box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
         }
@@ -570,7 +601,7 @@
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #111 0%, #000 100%);
-            padding: 70px 0 80px; /* Added bottom padding for sticky banner */
+            padding: 70px 0 80px;
             text-align: center;
             margin-top: auto;
             border-top: 1px solid #222;
@@ -685,8 +716,27 @@
         @media (max-width: 768px) {
             .header-top { flex-direction: column; }
             .logo { height: 45px; }
-            .hero-title { font-size: 2.5rem; }
+            
+            .hero-title { 
+                font-size: 1.9rem; /* Un poco más pequeño para acomodar el texto */
+                line-height: 1.15;
+                padding: 0 5px; /* Padding lateral mínimo para aprovechar el ancho */
+            }
+            
             .action-cards-section { grid-template-columns: 1fr; }
+
+            .hero-stats {
+                gap: 15px; 
+                flex-wrap: nowrap; 
+                justify-content: center;
+                margin-top: 30px;
+            }
+            .stat-number {
+                font-size: 1.3rem;
+            }
+            .stat-label {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -713,32 +763,30 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <!-- MODIFICADO: Texto de pill con efecto SHINE (LENTO) -->
         <div class="hero-badge">
-            ⭐ Clínica #1 en Odontología Biomimética y Biológica en Panamá
+            🌿 Odontología Biomimética y Biológica
         </div>
-                
-        <h1 class="hero-title">Transformamos Tu Sonrisa</h1>
-                
-        <p class="hero-subtitle">
-            Especialistas de Ortodoncia, Endodoncia e Implantes Dentales en Panamá
-        </p>
-                
+        
+        <h1 class="hero-title">En OdontoEstética transformamos tu sonrisa cuidando de tu salud</h1>
+        
         <p class="hero-description">
-            Con más de 10 años de experiencia, ofrecemos tratamientos de vanguardia utilizando la tecnología más avanzada para brindarte la sonrisa de tus sueños en un ambiente cómodo y profesional.
+            Clínica con +10 años de experiencia en Implantes, Ortodoncia y Endodoncia con enfoque biológico de mínima invasión. Utilizamos protocolos biomiméticos para resultados estéticos y saludables a largo plazo.
         </p>
 
+        <!-- Estadísticas ajustadas con CSS para verse en una linea en móvil -->
         <div class="hero-stats">
             <div class="stat-item">
                 <span class="stat-number">200+</span>
-                <span class="stat-label">Pacientes Satisfechos</span>
+                <span class="stat-label">Pacientes</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">10+</span>
-                <span class="stat-label">Años de Experiencia</span>
+                <span class="stat-label">Años Exp.</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">5⭐</span>
-                <span class="stat-label">Calificación Promedio</span>
+                <span class="stat-label">Calificación</span>
             </div>
         </div>
     </section>
@@ -746,7 +794,8 @@
     <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
+            <!-- MODIFICADO: Código de Tally actualizado con dynamicHeight=1 y altura fallback -->
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="639" frameborder="0" marginheight="0" marginwidth="0" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
     </section>
