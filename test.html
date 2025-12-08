@@ -126,7 +126,7 @@
             position: relative;
         }
 
-        /* MODIFICADO: Badge con efecto de brillo (Shine Animation) */
+        /* MODIFICADO: Badge con efecto de brillo MÁS LENTO (8s) */
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -145,7 +145,7 @@
             
             /* Propiedades necesarias para la animación */
             position: relative;
-            overflow: hidden; /* Mantiene el brillo dentro de la píldora */
+            overflow: hidden; 
         }
 
         /* Elemento pseudo para el brillo */
@@ -163,14 +163,15 @@
                 transparent
             );
             transform: skewX(-20deg);
-            animation: shine 4s infinite; /* Loop de 4 segundos */
+            /* CAMBIO: Animación ajustada a 8 segundos para ser más lenta */
+            animation: shine 8s infinite; 
         }
 
         /* Keyframes del brillo */
         @keyframes shine {
             0% { left: -150%; }
-            20% { left: 150%; } /* Pasa rápido */
-            100% { left: 150%; } /* Espera antes de repetir */
+            20% { left: 150%; } /* El brillo pasa, luego espera */
+            100% { left: 150%; } 
         }
 
         .hero-title {
@@ -237,18 +238,15 @@
             width: 100%;
         }
 
-        /* MODIFICADO: Wrapper flexible para altura automática */
         .form-wrapper {
             background: #111;
             border-radius: 20px;
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
-            height: auto; /* Permite crecer */
-            min-height: 400px; /* Altura mínima base */
+            /* Se eliminó height fija, se deja que el iframe expanda el contenedor */
+            min-height: 400px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex; /* Asegura que el iframe ocupe el espacio */
-            flex-direction: column;
         }
 
         /* Doctors Section */
@@ -727,7 +725,6 @@
             
             .action-cards-section { grid-template-columns: 1fr; }
 
-            /* Ajuste para que las estadisticas se vean en UNA sola linea en móvil */
             .hero-stats {
                 gap: 15px; 
                 flex-wrap: nowrap; 
@@ -766,7 +763,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <!-- MODIFICADO: Texto de pill con efecto SHINE -->
+        <!-- MODIFICADO: Texto de pill con efecto SHINE (LENTO) -->
         <div class="hero-badge">
             🌿 Odontología Biomimética y Biológica
         </div>
@@ -797,8 +794,8 @@
     <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <!-- MODIFICADO: iframe sin altura fija (100%) y scrolling="no" para que el script de Tally lo expanda -->
-            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
+            <!-- MODIFICADO: Código de Tally actualizado con dynamicHeight=1 y altura fallback -->
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="639" frameborder="0" marginheight="0" marginwidth="0" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
     </section>
