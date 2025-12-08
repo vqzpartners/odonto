@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OdontoEstética Panamá - Implantes, Ortodoncia y Odontología Biomimética</title>
         
-    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Clínica especialista en Odontología Biomimética y Biológica en Panamá. Expertos en Implantes Dentales, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
     <meta name="keywords" content="odontología biomimética panamá, odontología biológica panamá, implantes dentales panamá, ortodoncia panamá, endodoncia panamá, diseño de sonrisa, dentista holístico panamá">
     <meta name="author" content="OdontoEstética Panamá">
@@ -15,7 +15,7 @@
     <meta name="geo.position" content="8.9824;-79.5199">
     <meta name="ICBM" content="8.9824, -79.5199">
         
-    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://odontoestetica.com.pa/">
     <meta property="og:title" content="OdontoEstética Panamá - Especialistas en Implantes, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
@@ -24,19 +24,19 @@
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="OdontoEstética Panamá">
         
-    
+    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://odontoestetica.com.pa/">
     <meta property="twitter:title" content="OdontoEstética Panamá - Especialistas en Implantes, Ortodoncia y Endodoncia con enfoque mínimamente invasivo.">
     <meta property="twitter:description" content="Clínica líder en Odontología Estética y Biológica en Panamá">
     <meta property="twitter:image" content="https://odontoestetica.com.pa/img/social-media-banner.jpg">
         
-    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
             
-    
+    <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -126,14 +126,13 @@
             position: relative;
         }
 
-    
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 193, 7, 0.15); /* Fondo un poco más visible */
-            border: 1px solid #ffc107; /* Borde sólido */
-            box-shadow: 0 0 15px rgba(255, 193, 7, 0.15); /* Sutil resplandor */
+            background: rgba(255, 193, 7, 0.15); 
+            border: 1px solid #ffc107; 
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.15);
             padding: 10px 20px;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -218,7 +217,8 @@
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
-            min-height: 663px;
+            /* Se ha aumentado la altura mínima para evitar cortes en móvil */
+            min-height: 680px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
@@ -689,8 +689,28 @@
         @media (max-width: 768px) {
             .header-top { flex-direction: column; }
             .logo { height: 45px; }
-            .hero-title { font-size: 2.5rem; }
+            
+            /* Ajuste para que el título se vea en 2 líneas estéticas en móvil */
+            .hero-title { 
+                font-size: 2.2rem; 
+                line-height: 1.2;
+            }
+            
             .action-cards-section { grid-template-columns: 1fr; }
+
+            /* Ajuste para que las estadisticas se vean en UNA sola linea en móvil */
+            .hero-stats {
+                gap: 15px; /* Menor espacio entre elementos */
+                flex-wrap: nowrap; /* Fuerza a no romperse en líneas */
+                justify-content: center;
+                margin-top: 30px;
+            }
+            .stat-number {
+                font-size: 1.3rem; /* Numero un poco mas pequeño */
+            }
+            .stat-label {
+                font-size: 0.7rem; /* Texto descriptivo mas pequeño */
+            }
         }
     </style>
 </head>
@@ -717,35 +737,35 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <!-- MODIFICADO: Badge ahora anuncia la especialidad Biomimética -->
+        <!-- MODIFICADO: Pill (Badge) con texto corto y directo -->
         <div class="hero-badge">
-            🌿 Clínica de Odontología Biomimética y Biológica
+            🌿 Odontología Biomimética y Biológica
         </div>
         
         <h1 class="hero-title">Transformamos Tu Sonrisa <br>Respetando Tu Salud</h1>
         
-        <!-- MODIFICADO: Subtítulo con las palabras clave SEO para posicionamiento -->
+        <!-- MODIFICADO: Uso de espacios &nbsp; para evitar saltos de línea feos en PC -->
         <p class="hero-subtitle">
-            Expertos en <strong>Implantes Dentales, Ortodoncia y Endodoncia</strong> con un enfoque biológico de mínima invasión.
+            Expertos en <strong>Implantes Dentales, Ortodoncia y Endodoncia</strong> con un enfoque biológico de mínima&nbsp;invasión.
         </p>
                 
-        <!-- MODIFICADO: Descripción de soporte -->
         <p class="hero-description">
             Con más de 10 años de experiencia, utilizamos protocolos biomiméticos avanzados para imitar la naturaleza de tus dientes y preservar tu estructura dental, garantizando resultados estéticos y saludables a largo plazo.
         </p>
 
+        <!-- Estadísticas ajustadas con CSS para verse en una linea en móvil -->
         <div class="hero-stats">
             <div class="stat-item">
                 <span class="stat-number">200+</span>
-                <span class="stat-label">Pacientes Satisfechos</span>
+                <span class="stat-label">Pacientes</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">10+</span>
-                <span class="stat-label">Años de Experiencia</span>
+                <span class="stat-label">Años Exp.</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">5⭐</span>
-                <span class="stat-label">Calificación Promedio</span>
+                <span class="stat-label">Calificación</span>
             </div>
         </div>
     </section>
@@ -753,7 +773,8 @@
     <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="663" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
+            <!-- MODIFICADO: scrolling="yes" para evitar corte en móviles -->
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="680" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
     </section>
