@@ -126,32 +126,59 @@
             position: relative;
         }
 
-        /* MODIFICADO: Badge con texto más pequeño y padding ajustado */
+        /* MODIFICADO: Badge con efecto de brillo (Shine Animation) */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px; /* Gap reducido */
+            gap: 6px;
             background: rgba(255, 193, 7, 0.15); 
             border: 1px solid #ffc107; 
             box-shadow: 0 0 15px rgba(255, 193, 7, 0.15);
-            padding: 8px 16px; /* Padding reducido */
+            padding: 8px 16px;
             border-radius: 50px;
-            font-size: 0.75rem; /* Texto más pequeño */
+            font-size: 0.75rem;
             color: #ffc107;
             margin-bottom: 25px;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            
+            /* Propiedades necesarias para la animación */
+            position: relative;
+            overflow: hidden; /* Mantiene el brillo dentro de la píldora */
         }
 
-        /* MODIFICADO: Título sin gradiente, color sólido amarillo */
+        /* Elemento pseudo para el brillo */
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: shine 4s infinite; /* Loop de 4 segundos */
+        }
+
+        /* Keyframes del brillo */
+        @keyframes shine {
+            0% { left: -150%; }
+            20% { left: 150%; } /* Pasa rápido */
+            100% { left: 150%; } /* Espera antes de repetir */
+        }
+
         .hero-title {
             font-size: 3.5rem;
             color: #ffc107; /* Amarillo sólido */
             margin-bottom: 20px;
             font-weight: 800;
             line-height: 1.2;
-            /* Se eliminaron las propiedades de background-clip/gradient */
         }
 
         .hero-subtitle {
@@ -210,14 +237,18 @@
             width: 100%;
         }
 
+        /* MODIFICADO: Wrapper flexible para altura automática */
         .form-wrapper {
             background: #111;
             border-radius: 20px;
             padding: 10px;
             border: 1px solid #333;
             overflow: hidden;
-            min-height: 680px; 
+            height: auto; /* Permite crecer */
+            min-height: 400px; /* Altura mínima base */
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex; /* Asegura que el iframe ocupe el espacio */
+            flex-direction: column;
         }
 
         /* Doctors Section */
@@ -696,6 +727,7 @@
             
             .action-cards-section { grid-template-columns: 1fr; }
 
+            /* Ajuste para que las estadisticas se vean en UNA sola linea en móvil */
             .hero-stats {
                 gap: 15px; 
                 flex-wrap: nowrap; 
@@ -734,14 +766,16 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <!-- MODIFICADO: Texto de pill con efecto SHINE -->
         <div class="hero-badge">
             🌿 Odontología Biomimética y Biológica
         </div>
         
-        <h1 class="hero-title">En OdontoEstética transformamos tu sonrisa, cuidando de tu salud.</h1>
-                        
+        <h1 class="hero-title">En OdontoEstética transformamos tu sonrisa cuidando de tu salud</h1>
+        
         <p class="hero-description">
-            Clínica con +10 años de experiencia en Implantes, Ortodoncia y Endodoncia con enfoque biológico de mínima invasión. Utilizamos protocolos biomiméticos para resultados estéticos y saludables a largo plazo.</p>
+            Clínica con +10 años de experiencia en Implantes, Ortodoncia y Endodoncia con enfoque biológico de mínima invasión. Utilizamos protocolos biomiméticos para resultados estéticos y saludables a largo plazo.
+        </p>
 
         <!-- Estadísticas ajustadas con CSS para verse en una linea en móvil -->
         <div class="hero-stats">
@@ -763,7 +797,8 @@
     <!-- Form Section -->
     <section class="form-section-container" id="agendar">
         <div class="form-wrapper">
-            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="680" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" title="Clínica OdontoEstética"></iframe>
+            <!-- MODIFICADO: iframe sin altura fija (100%) y scrolling="no" para que el script de Tally lo expanda -->
+            <iframe data-tally-src="https://tally.so/embed/3jjyZE?alignLeft=1&hideTitle=1&transparentBackground=1" loading="lazy" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" title="Clínica OdontoEstética"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
     </section>
