@@ -1,3 +1,5 @@
+--- START OF FILE text/plain ---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1029,6 +1031,16 @@
     </div>
 
     <script>
+        // ADD UTM PARAMETERS AUTOMATICALLY ON LOAD
+        (function addUtmParams() {
+            // Only add if no query string exists already
+            if (!window.location.search) {
+                const utm = "utm_source=landing&utm_medium=social&utm_content=link_in_bio";
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + utm;
+                window.history.replaceState({ path: newUrl }, '', newUrl);
+            }
+        })();
+
         // Update year automatically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
